@@ -1,0 +1,41 @@
+name: FZ Theory Verification
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    - cron: '0 0 * * 0'  # Еженедельная проверка по воскресеньям
+
+jobs:
+  test:
+    runs-on: windows-latest  # Важно для Windows-совместимости
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+      shell: cmd
+    
+    - name: Run unit tests
+      run: |
+        python -m unittest validation/critical_tests.py
+      shell: cmd
+    
+    - name: Archive verification results
+      uses: actions/upload-artifact@v4
+      with:
+        name: verification-results-python-${{ matrix.python-version }}
+        path: validation/
