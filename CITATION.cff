@@ -1,19 +1,27 @@
+# ENGLISH VERSION (основная для машинного чтения)
+# РУССКАЯ ВЕРСИЯ ДОСТУПНА В README.md
+
 cff-version: 1.2.0
-message: "Если вы используете эту теорию в своей работе, пожалуйста, цитируйте ее следующим образом"
+message: "If you use this theory in your research, please cite it as follows"
 authors:
-  - family-names: "FZ Theory Collective"
+  - family-names: "DarwinUroborovich"
     given-names: ""
-title: "Теория FZ: Самонасыщение бесконечного ничто и эволюция бытия"
-version: 1.0.0
+title: "FZ Theory: Self-Saturation of Infinite Nothingness and the Evolution of Being"
+version: 1.0.2
 date-released: 2025-11-13
-doi: "10.5281/zenodo.12345678"  # Будет получен после загрузки в Zenodo
-url: "https://github.com/fz-theory/fz-theory"
+doi: "10.5281/zenodo.98765432"  # Replace with your real DOI after Zenodo publication
+url: "https://github.com/DarwinUroborovich/fz-theory"  # Replace with your real URL
 license: "MIT"
 type: "software"
 references:
   - type: "article"
-    doi: "10.48550/arXiv.2511.12345"
+    doi: "10.48550/arXiv.2511.12345"  # Replace with your real arXiv DOI
     title: "Mathematical Foundations of Self-Saturation of Infinite Nothingness: Verification and Critical Points"
     year: 2025
     authors:
-      - family-names: "FZ Theory Collective"
+      - family-names: "DarwinUroborovich"
+        given-names: ""
+
+# RUSSIAN VERSION (для справки)
+# message: "Если вы используете эту теорию в своей работе, пожалуйста, цитируйте ее следующим образом"
+# title: "Теория FZ: Самонасыщение бесконечного ничто и эволюция бытия"

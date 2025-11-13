@@ -1,0 +1,6 @@
+test_name,parameter_p,parameter_t,expected_result,tolerance,description
+critical_point_99,1e-20,4.605170185988092e20,0.99,1e-15,"Критическая точка для P=0.99"
+critical_point_999,1e-20,6.907755278982137e20,0.999,1e-15,"Критическая точка для P=0.999"
+extreme_limit,1e-20,1e22,1.0,1e-40,"Предел при больших tp"
+symmetry_break_90,NA,4.38,0.9,1e-2,"Нарушение симметрии на 90% при Φ=4.38"
+balanced_weight,NA,1e20,1.0,1e-10,"Сбалансированный сценарий веса пустоты"
