@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Если вы используете эту теорию в своей работе, пожалуйста, цитируйте ее следующим образом"
+authors:
+  - family-names: "FZ Theory Collective"
+    given-names: ""
+title: "Теория FZ: Самонасыщение бесконечного ничто и эволюция бытия"
+version: 1.0.0
+date-released: 2025-11-13
+doi: "10.5281/zenodo.12345678"  # Будет получен после загрузки в Zenodo
+url: "https://github.com/fz-theory/fz-theory"
+license: "MIT"
+type: "software"
+references:
+  - type: "article"
+    doi: "10.48550/arXiv.2511.12345"
+    title: "Mathematical Foundations of Self-Saturation of Infinite Nothingness: Verification and Critical Points"
+    year: 2025
+    authors:
+      - family-names: "FZ Theory Collective"
