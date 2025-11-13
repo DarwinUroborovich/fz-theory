@@ -2,20 +2,20 @@ from src.core import FZVerifier
 
 verifier = FZVerifier()
 
-# Тест 1: критическая точка 99%
+# Test 1: 99% critical point
 p = 1e-20
 t_99 = 4.605170185988092e20
 prob_99 = verifier.manifestation_probability(p, t_99)
-print(f"Критическая точка 99%: P = {prob_99:.15f}")
+print(f"Critical Point 99%: P = {prob_99:.15f}")
 
-# Тест 2: экстремальное значение
+# Test 2: Extreme value
 p_extreme = 0.1
 t_extreme = 1e5
 prob_extreme = verifier.manifestation_probability(p_extreme, t_extreme)
-print(f"Экстремальное значение: P = {prob_extreme}")
+print(f"Extreme Case: P = {prob_extreme}")
 
-# Тест 3: Decimal
+# Test 3: Decimal precision test
 p_dec = "1e-20"
 t_dec = "4.605170185988092e20"
 prob_dec = verifier.manifestation_probability_decimal(p_dec, t_dec, precision=50)
-print(f"Decimal: P = {prob_dec}")
+print(f"Decimal High Precision: P = {prob_dec}")
