@@ -12,20 +12,30 @@ title: "FZ Theory: Self-Saturation of Infinite Nothingness and the Evolution of 
 version: "1.0.6"
 date-released: 2025-11-15
 
-doi: "10.5281/zenodo.98765432"  # Replace with your real DOI after Zenodo publication
-url: "https://github.com/DarwinUroborovich/fz-theory"  # Replace with your real URL
+doi: "10.5281/zenodo.17613144"
+url: "https://github.com/DarwinUroborovich/fz-theory"
 
 license: "MIT"
 type: "software"
 
 references:
-  - type: "article"
-    doi: "10.48550/arXiv.2511.12345"  # Replace with your real arXiv DOI
-    title: "Mathematical Foundations of Self-Saturation of Infinite Nothingness: Verification and Critical Points"
+  - type: "dataset"
+    doi: "10.5281/zenodo.17613143"
+    title: "FZ Theory v1.0.6 (Zenodo archived snapshot)"
     year: 2025
     authors:
       - family-names: "DarwinUroborovich"
         given-names: ""
+
+  # Add your arXiv DOI here when the preprint is approved.
+  # Example placeholder:
+  # - type: "article"
+  #   doi: "10.48550/arXiv.xxxxxxx"
+  #   title: "FZ Theory: The Theory of Nothing"
+  #   year: 2025
+  #   authors:
+  #     - family-names: "DarwinUroborovich"
+  #       given-names: ""
 
 # RUSSIAN VERSION (for reference only)
 # message: "Если вы используете эту теорию в своей работе, пожалуйста, цитируйте её следующим образом"
