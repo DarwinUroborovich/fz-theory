@@ -1,65 +1,112 @@
 # **FZ THEORY**  
 *Self-Saturation of Infinite Nothingness and the Evolution of Being*
 
-[![Verification Status](https://github.com/DarwinUroborovich/fz-theory/actions/workflows/verification.yml/badge.svg)](https://github.com/DarwinUroborovich/fz-theory/actions)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.98765432.svg)](https://doi.org/10.5281/zenodo.98765432)
+> Code: numerical verification of the core equations of the FZ Theory  
+> Environment: Python + virtual environment (no Docker required)
 
 ---
 
 ## 📌 Description (English)
 
-The FZ Theory describes the origin of Being as an inevitable consequence of the infinite potentiality of “Nothing”.  
-In the FZ model, “nothing” is not simple emptiness, but a state with infinite capacity for possible manifestations and zero initial distinctions.
+The FZ Theory describes the origin of being as an inevitable consequence of the infinite potentiality of “nothingness”.
 
-Key result: **mathematical verification of the critical manifestation point**  
+In this model, **“nothing” is not emptiness**, but a state with:
+
+- infinite potentiality (Φ → ∞),  
+- zero initial distinctions,  
+- no laws, no structure.
+
+Assuming a non-zero probability \(p > 0\) for a minimal distinction and an unbounded measure \(t\) of potential configurations, the probability that at least one manifestation occurs is:
+
 \[
-\tau = t \cdot p = 4.60517
-\]  
-at which the probability of a distinction emerging reaches **99%**:
-\[
-P = 1 - e^{-\tau} = 0.99.
+P(t,p) = 1 - e^{-tp},
 \]
+
+so that \(P \to 1\) as \(tp \to \infty\).  
+Being is therefore **mathematically inevitable** in an infinite nothingness with non-zero potential.
 
 The repository contains:
 
-- a numerically stable implementation of the core equations;
-- automated tests for critical thresholds and asymptotic regimes;
-- LaTeX source for the FZ Theory paper (for arXiv submission).
+- core implementation of the main FZ equations (`src/core.py`);  
+- unit tests validating numerical behavior (`validation/critical_tests.py`);  
+- a LaTeX manuscript with the full theory (`paper/main.tex`).  
 
 ---
 
-## 📌 Описание (Russian)
+## 📌 Описание (по-русски)
 
-Теория FZ описывает происхождение Бытия как неизбежное следствие бесконечной потенциальности «Ничто».  
-В модели FZ «ничто» — это не просто пустота, а состояние с бесконечной мощностью возможных проявлений и нулевым набором исходных различий.
+Теория FZ описывает происхождение бытия как **неизбежное следствие** бесконечной потенциальности «ничто».
 
-Ключевой результат: **математическая верификация критической точки проявления**  
+В этой модели **«ничто» — не пустота**, а состояние с:
+
+- бесконечной потенциальностью (Φ → ∞),  
+- нулём исходных различий,  
+- отсутствием законов и структуры.
+
+Если вероятность минимального различия \(p > 0\), а мера возможных конфигураций \(t\) бесконечна, тогда вероятность хотя бы одного проявления:
+
 \[
-\tau = t \cdot p = 4.60517,
-\]  
-при которой вероятность возникновения различия достигает **99%**:
-\[
-P = 1 - e^{-\tau} = 0.99.
+P(t,p) = 1 - e^{-tp},
 \]
 
-Репозиторий содержит:
+и при \(t p \to \infty\) мы получаем \(P \to 1\).  
+То есть бытие в бесконечном «ничто» с ненулевой потенциальностью — **не случайность, а математическая неизбежность**.
 
-- численно устойчивую реализацию основных уравнений;
-- автоматические тесты для критических точек и асимптотик;
-- LaTeX-исходник статьи по Теории FZ (для arXiv).
+В репозитории:
+
+- реализация ключевых уравнений теории (`src/core.py`);  
+- юнит-тесты для проверки численной устойчивости (`validation/critical_tests.py`);  
+- LaTeX-статья с полным изложением теории (`paper/main.tex`).  
 
 ---
 
-## 🧪 Verification
+## 🧪 Verification (run tests)
 
-The repository includes automated tests validating:
+**Prerequisites:**
 
-- the critical manifestation threshold \(\tau_{\mathrm{crit}} = 4.60517\);  
-- asymptotic behavior for large \(t \cdot p\);  
-- high-precision Decimal checks;  
-- numerical stability of all core equations.
+- Python 3.10+ installed  
+- Git installed  
 
-Run verification (from the project root):
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/DarwinUroborovich/fz-theory.git
+cd fz-theory
+```
+
+### 2. Create and activate a virtual environment
+
+**Windows:**
+
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+**Linux / macOS:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 3. Run tests
 
 ```bash
 python -m unittest validation.critical_tests
+```
+
+If all tests pass (OK), the environment is correctly reproduced and the core equations are verified.
+
+### 4. (Optional) Run demonstration script
+
+```bash
+python demo.py
+```
+
+This will output example calculations (critical points, extreme cases, high-precision verification) and display a simple plot showing how the manifestation probability  
+\( P(t,p) \) saturates toward 1 as \( t p \) increases.
+
+---

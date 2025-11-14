@@ -1,66 +1,79 @@
 import unittest
 import numpy as np
 import math
-from src.core import FZVerifier
 from decimal import Decimal, getcontext
+
+from src.core import FZVerifier
 
 class TestFZTheory(unittest.TestCase):
     """
-    Автоматические тесты для верификации ключевых формул Теории FZ
-    
-    ИСПРАВЛЕНО: 
-    - Добавлен импорт math
-    - Исправлены тесты для Decimal
-    - Удалены бессмысленные тесты на 40+ знаков для float
+    English:
+    Automated unit tests for verifying the core mathematical components
+    of the FZ Theory. Tests cover critical probability thresholds,
+    asymptotic limits, high-precision Decimal calculations, structural
+    weight functions and numerical stability.
+
+    Русский:
+    Автоматические юнит-тесты для проверки ключевых математических
+    компонентов Теории FZ. Тесты охватывают критические вероятностные
+    точки, асимптотические пределы, высокоточную Decimal-арифметику,
+    структурные весовые функции и численную устойчивость.
     """
-    
+
     def setUp(self):
-        """Настройка тестов"""
+        """Initialize verifier and high-precision context (EN/RU) — Инициализация и высокий precision."""
         self.verifier = FZVerifier()
         getcontext().prec = 50
-    
+
     def test_critical_point_99_percent(self):
         """
-        Тест 3а: Критическая точка для P = 0.99
+        English:
+        Test the critical point where P = 0.99, ensuring numerical
+        correctness for tp = -ln(1 - 0.99).
+
+        Русский:
+        Проверка критической точки при P = 0.99. Убеждаемся, что tp =
+        -ln(1 - 0.99) даёт корректную численную оценку.
         """
         target_p = 0.99
-        expected_tp = self.verifier.critical_point_for_probability(target_p)
-        
+        critical_tp = self.verifier.critical_point_for_probability(target_p)
+
         p = 1e-20
-        t = expected_tp / p
-        
+        t = critical_tp / p
         calculated_p = self.verifier.manifestation_probability(p, t)
-        
-        self.assertAlmostEqual(calculated_p, target_p, places=15,
-                             msg=f"Для tp={expected_tp}, ожидаем P={target_p}, получено {calculated_p}")
-    
+
+        self.assertAlmostEqual(
+            calculated_p, target_p, places=15
+        )
+
     def test_extreme_limit(self):
         """
-        Тест 3б: Предел при больших tp
+        English:
+        Asymptotic behavior for very large tp. When tp is sufficiently
+        high, P must saturate to 1.0 in double precision.
+
+        Русский:
+        Асимптотическое поведение при больших tp. При достаточно больших
+        значениях вероятность должна насыщаться до 1.0.
         """
         p = 1e-20
         t = 1e22
-        tp = t * p
-        
         calculated_p = self.verifier.manifestation_probability(p, t)
-        
-        # При tp=100, exp(-100) ~ 3.72e-44, поэтому 1 - exp(-100) = 1.0 в double
-        # Тест проверяет, что функция возвращает 1.0 без ошибок
-        self.assertEqual(calculated_p, 1.0,
-                       msg=f"Для экстремальных значений tp={tp}, ожидалось 1.0, получено {calculated_p}")
-    
+
+        self.assertEqual(calculated_p, 1.0)
+
     def test_decimal_precision(self):
         """
-        Тест 3в: Абсолютная точность через Decimal
+        English:
+        High-precision verification using Decimal for tp ≈ ln(100)
+        where P ≈ 0.99.
 
-        Проверяем, что ошибка при расчёте P для tp ≈ 4.60517
-        (когда P ≈ 0.99) меньше 1e-15.
-
-        Это очень строгий критерий для операций с вещественным показателем,
-        но реалистичный для Decimal с prec=50.
+        Русский:
+        Высокоточная проверка через Decimal для tp ≈ ln(100),
+        когда вероятность ≈ 0.99.
         """
         p_str = "1e-20"
-        t_str = "4.605170185988092e20"  # tp = 4.605170185988092
+        t_str = "4.605170185988092e20"
 
         calculated_p = self.verifier.manifestation_probability_decimal(
             p_str, t_str, precision=50
@@ -68,83 +81,62 @@ class TestFZTheory(unittest.TestCase):
         expected_p = Decimal("0.99")
 
         error = abs(calculated_p - expected_p)
+        self.assertLess(error, Decimal("1e-15"))
 
-        # Было: 1e-45 — слишком жёстко
-        # Делаем реалистичный порог 1e-15
-        self.assertLess(
-            error,
-            Decimal("1e-15"),
-            msg=f"Ошибка {error} превышает допустимую 1e-15",
-        )
-
-    
     def test_nothing_weight_scenarios(self):
         """
-        Тест веса пустоты для трех сценариев
+        English:
+        Verification of structural weight functions for growth, balance
+        and decay scenarios.
+
+        Русский:
+        Проверка весовых функций трёх сценариев: рост, баланс, распад.
         """
         phi = 1e20
 
-        # Сценарий роста: E = Φ * Φ^(-0.5) = Φ^(0.5) = 1e10
         growth_weight = self.verifier.nothing_weight(phi, "growth")
-        self.assertAlmostEqual(
-            growth_weight,
-            1e10,
-            places=5,
-            msg="Сценарий роста должен давать E ≈ 1e10 при Φ=1e20",
-        )
+        self.assertAlmostEqual(growth_weight, 1e10, places=5)
 
-        # Сбалансированный сценарий: E = Φ * Φ^(-1.0) = 1.0
         balanced_weight = self.verifier.nothing_weight(phi, "balanced")
-        self.assertAlmostEqual(
-            balanced_weight,
-            1.0,
-            places=10,
-            msg="Сбалансированный сценарий должен давать E=1.0",
-        )
+        self.assertAlmostEqual(balanced_weight, 1.0, places=10)
 
-        # Сценарий распада: E = Φ * Φ^(-1.5) = Φ^(-0.5) = 1e-10
         decay_weight = self.verifier.nothing_weight(phi, "decay")
-        self.assertAlmostEqual(
-            decay_weight,
-            1e-10,
-            places=15,
-            msg="Сценарий распада должен давать E ≈ 1e-10 при Φ=1e20",
-        )
+        self.assertAlmostEqual(decay_weight, 1e-10, places=15)
 
-
-    
     def test_asymmetry_function(self):
         """
-        Тест функции нарушения симметрии
+        English:
+        Tests the asymmetry function for symmetry preservation, middle
+        regime and near-full asymmetry.
+
+        Русский:
+        Тест функции асимметрии: полная симметрия, промежуточный режим,
+        почти полная асимметрия.
         """
-        # При Φ=1: Asymmetry = 0
         self.assertAlmostEqual(self.verifier.asymmetry(1.0), 0.0, places=15)
-        
-        # При Φ=4.38: Asymmetry ≈ 0.9009 (проверено численно)
-        expected_90 = 0.9009
-        calculated_90 = self.verifier.asymmetry(4.38)
-        self.assertAlmostEqual(calculated_90, expected_90, places=3,
-                             msg=f"Для Φ=4.38 ожидалось ~0.9009, получено {calculated_90}")
-        
-        # При Φ→∞: Asymmetry → 1
+
+        calc_val = self.verifier.asymmetry(4.38)
+        self.assertAlmostEqual(calc_val, 0.9009, places=3)
+
         self.assertAlmostEqual(self.verifier.asymmetry(1e10), 1.0, places=15)
-    
+
     def test_numerical_stability(self):
         """
-        Тест численной устойчивости для экстремальных значений
+        English:
+        Stress-tests numerical stability for extreme parameter values,
+        including very large tp and validation of error handling.
+
+        Русский:
+        Стресс-тесты численной устойчивости для экстремальных значений,
+        включая большие tp и корректную обработку ошибок.
         """
-        # Экстремально малая вероятность
         p = 1e-100
         t = 1e102
-        
-        # Должно работать без ошибок и возвращать 1.0
         prob = self.verifier.manifestation_probability(p, t)
-        self.assertEqual(prob, 1.0, "Экстремальные значения должны обрабатываться корректно")
-        
-        # Проверка отрицательных значений (должна быть ошибка)
+        self.assertEqual(prob, 1.0)
+
         with self.assertRaises(ValueError):
             self.verifier.manifestation_probability(-1e-20, 1e20)
-        
         with self.assertRaises(ValueError):
             self.verifier.manifestation_probability(1e-20, -1e20)
 
