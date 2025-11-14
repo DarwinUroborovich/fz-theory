@@ -8,21 +8,45 @@
 
 ## 📌 Description (English)
 
-The FZ Theory describes the origin of being as an inevitable consequence of the infinite potentiality of "nothing".  
-In the FZ model, "nothing" is not emptiness but a state with infinite capacity for possible manifestations and zero distinctions.
+The FZ Theory describes the origin of Being as an inevitable consequence of the infinite potentiality of “Nothing”.  
+In the FZ model, “nothing” is not simple emptiness, but a state with infinite capacity for possible manifestations and zero initial distinctions.
 
-Key achievement: **mathematical verification of the critical manifestation point**  
-(tp = 4.60517), where the probability of distinction emergence reaches **99%**.
+Key result: **mathematical verification of the critical manifestation point**  
+\[
+\tau = t \cdot p = 4.60517
+\]  
+at which the probability of a distinction emerging reaches **99%**:
+\[
+P = 1 - e^{-\tau} = 0.99.
+\]
+
+The repository contains:
+
+- a numerically stable implementation of the core equations;
+- automated tests for critical thresholds and asymptotic regimes;
+- LaTeX source for the FZ Theory paper (for arXiv submission).
 
 ---
 
 ## 📌 Описание (Russian)
 
-Теория FZ описывает происхождение бытия как неизбежное следствие бесконечной потенциальности «ничто».  
-В модели FZ «ничто» — не пустота, а состояние с бесконечной мощностью возможных проявлений и нулевым набором различий.
+Теория FZ описывает происхождение Бытия как неизбежное следствие бесконечной потенциальности «Ничто».  
+В модели FZ «ничто» — это не просто пустота, а состояние с бесконечной мощностью возможных проявлений и нулевым набором исходных различий.
 
-Ключевое достижение: **математическая верификация критической точки проявления**  
-(tp = 4.60517), при которой вероятность возникновения различия достигает **99%**.
+Ключевой результат: **математическая верификация критической точки проявления**  
+\[
+\tau = t \cdot p = 4.60517,
+\]  
+при которой вероятность возникновения различия достигает **99%**:
+\[
+P = 1 - e^{-\tau} = 0.99.
+\]
+
+Репозиторий содержит:
+
+- численно устойчивую реализацию основных уравнений;
+- автоматические тесты для критических точек и асимптотик;
+- LaTeX-исходник статьи по Теории FZ (для arXiv).
 
 ---
 
@@ -30,12 +54,12 @@ Key achievement: **mathematical verification of the critical manifestation point
 
 The repository includes automated tests validating:
 
-- the critical manifestation point  
-- asymptotic behavior  
-- high-precision cases  
-- numerical stability
+- the critical manifestation threshold \(\tau_{\mathrm{crit}} = 4.60517\);  
+- asymptotic behavior for large \(t \cdot p\);  
+- high-precision Decimal checks;  
+- numerical stability of all core equations.
 
-Run verification:
+Run verification (from the project root):
 
 ```bash
 python -m unittest validation.critical_tests
