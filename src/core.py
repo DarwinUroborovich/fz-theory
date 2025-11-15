@@ -7,40 +7,58 @@ from typing import Union
 DEFAULT_PRECISION = 100
 getcontext().prec = DEFAULT_PRECISION
 
+
 class FZVerifier:
     """
     FZ Theory verification toolkit with numerically stable implementations.
 
-    FIXED: Removed unstable Level 2 branch. All formulas now use a single,
-    mathematically correct and numerically robust method.
+    This class implements the core mathematical components used in the
+    article on FZ Theory: the manifestation probability in a
+    pre-existential null domain (PND), critical tp thresholds, high-
+    precision discrete analogues of the infinite-attempt process, a
+    phenomenological "weight" model for the PND, the asymmetry function
+    A(Φ) describing symmetry breaking between non-being and being, and
+    a simple densification model ρ(t).
+
+    FIXED:
+    - Removed legacy unstable branches.
+    - All formulas now use a single, mathematically consistent and
+      numerically robust implementation that matches the published
+      definitions.
     """
 
     @staticmethod
     def manifestation_probability(p: float, t: float) -> float:
         """
-        Probability of distinction manifestation in infinite nothingness.
+        Probability of distinction manifestation in the pre-existential
+        null domain (PND) in the continuous model.
 
-        Stable formulation:
-            P = 1 - exp(-tp)
-        implemented as:
-            P = -expm1(-tp)
+            P(t,p) = 1 - exp(-tp),
+
+        implemented in a numerically stable form via:
+
+            P = -expm1(-tp)   (since -expm1(-tp) = 1 - exp(-tp)).
 
         Parameters
         ----------
         p : float
-            Probability of a single elementary manifestation (0 < p ≤ 1)
+            Probability of a single elementary manifestation
+            (0 < p ≤ 1). Conceptually, this is the success probability
+            of one "attempt" in the PND.
         t : float
-            Measure of the capacity of possible distinctions (t > 0)
+            Measure of the capacity of possible distinctions (t > 0).
+            In the theory, this plays the role of a non-metric attempt
+            index rather than physical time.
 
         Returns
         -------
         float
-            Manifestation probability (0 ≤ P ≤ 1)
+            Manifestation probability (0 ≤ P ≤ 1).
 
         Raises
         ------
         ValueError
-            If p <= 0 or t <= 0 (invalid parameters)
+            If p <= 0 or t <= 0 (invalid parameters).
         """
         if p <= 0 or t <= 0:
             raise ValueError("p and t must be positive")
@@ -56,20 +74,38 @@ class FZVerifier:
         return min(1.0, max(0.0, prob))
 
     @staticmethod
-    def manifestation_probability_decimal(p_str: str, t_str: str, precision: int = 100) -> Decimal:
+    def manifestation_probability_decimal(
+        p_str: str,
+        t_str: str,
+        precision: int = 100
+    ) -> Decimal:
         """
-        High-precision Decimal version for critical points.
+        High-precision Decimal version for critical points and discrete
+        analogues of the infinite-attempt process.
 
-        Computes P = 1 - (1 - p)^t exactly (within the specified precision).
+        Computes the discrete expression
+
+            P(N) = 1 - (1 - p)^N
+
+        exactly (within the specified Decimal precision). For very small
+        p and large N this matches, to high accuracy, the continuous
+        model
+
+            P(tp) = 1 - exp(-tp),
+
+        with tp ≈ p · N.
 
         Parameters
         ----------
         p_str : str
-            Probability of a single manifestation, as a string for high precision (e.g. "1e-20").
+            Probability of a single manifestation, as a string for high
+            precision (e.g. "1e-20").
         t_str : str
-            Measure of potential configurations, as a string (e.g. "4.605170185988092e20").
+            Measure of potential configurations (interpreted as N),
+            as a string (e.g. "4.605170185988092e20").
         precision : int
-            Decimal precision (number of significant digits) for the calculation.
+            Decimal precision (number of significant digits) for the
+            calculation.
 
         Returns
         -------
@@ -94,19 +130,19 @@ class FZVerifier:
     @staticmethod
     def critical_point_for_probability(target_p: float) -> float:
         """
-        Compute the critical value of the product tp for a given manifestation probability
-        in the continuous model
+        Compute the critical value of the product tp for a given
+        manifestation probability in the continuous model
 
             P(tp) = 1 - exp(-tp).
 
-        For example:
-            target_p = 0.99 → tp ≈ 4.605170185988092 (ln 100),
-            target_p = 0.999 → tp ≈ 6.907755278982137 (ln 1000).
+        Examples:
+            target_p = 0.99  →  tp ≈ ln(100)  ≈ 4.605170185988092
+            target_p = 0.999 →  tp ≈ ln(1000) ≈ 6.907755278982137
 
         Parameters
         ----------
         target_p : float
-            Desired manifestation probability (0 < target_p < 1)
+            Desired manifestation probability (0 < target_p < 1).
 
         Returns
         -------
@@ -123,28 +159,41 @@ class FZVerifier:
 
         return -math.log(1 - target_p)
 
-
     @staticmethod
-    def nothing_weight(phi: float, scenario: str = 'balanced') -> float:
+    def nothing_weight(phi: float, scenario: str = "balanced") -> float:
         """
-        Weight of Nothingness: E = Φ · ρ(Φ)
+        Conceptual "weight" of the pre-existential null domain (PND),
+        defined as
 
-        Based on different evolution scenarios for the "nothingness" state:
-            'growth'    → ρ(Φ) = Φ^(-0.5)  → E = Φ * Φ^(-0.5) = Φ^0.5  (diverges as Φ → ∞)
-            'balanced'  → ρ(Φ) = Φ^(-1.0)  → E = Φ * Φ^(-1.0) = 1      (constant for any Φ)
-            'decay'     → ρ(Φ) = Φ^(-1.5)  → E = Φ * Φ^(-1.5) = Φ^(-0.5) (vanishes as Φ → ∞)
+            E(Φ) = Φ · ρ(Φ),
+
+        where ρ(Φ) is an effective structural density. In the theory,
+        different qualitative scenarios for the evolution of the PND are
+        captured by different exponents of Φ:
+
+            'growth'    → ρ(Φ) = Φ^(-0.5)
+                          → E(Φ) = Φ * Φ^(-0.5) = Φ^(0.5)
+                          (diverges as Φ → ∞)
+
+            'balanced'  → ρ(Φ) = Φ^(-1.0)
+                          → E(Φ) = Φ * Φ^(-1.0) = 1
+                          (remains constant for any Φ)
+
+            'decay'     → ρ(Φ) = Φ^(-1.5)
+                          → E(Φ) = Φ * Φ^(-1.5) = Φ^(-0.5)
+                          (vanishes as Φ → ∞)
 
         Parameters
         ----------
         phi : float
-            Current potential of nothingness (Φ > 0)
+            Current potential of nothingness (Φ > 0).
         scenario : str
-            Evolution scenario: 'growth', 'balanced', or 'decay'
+            Evolution scenario: 'growth', 'balanced', or 'decay'.
 
         Returns
         -------
         float
-            The "weight of nothingness" E for the given scenario.
+            The "weight of the PND" E(Φ) for the given scenario.
 
         Raises
         ------
@@ -154,11 +203,11 @@ class FZVerifier:
         if phi <= 0:
             raise ValueError("phi must be positive")
 
-        if scenario == 'growth':
+        if scenario == "growth":
             rho = phi ** -0.5
-        elif scenario == 'balanced':
+        elif scenario == "balanced":
             rho = phi ** -1.0
-        elif scenario == 'decay':
+        elif scenario == "decay":
             rho = phi ** -1.5
         else:
             raise ValueError("Invalid scenario: use 'growth', 'balanced', or 'decay'")
@@ -168,21 +217,26 @@ class FZVerifier:
     @staticmethod
     def asymmetry(phi: float) -> float:
         """
-        Symmetry-breaking function defining the emergence of distinction.
+        Symmetry-breaking function defining the emergence of distinction
+        between non-being and being as the potential Φ of the PND grows.
 
-        Analytic forms:
-            Asymmetry(Φ) = tanh(ln Φ)
-                         = (Φ² - 1) / (Φ² + 1)
+        Analytic forms (equivalent):
+
+            A(Φ) = tanh(ln Φ)
+                 = (Φ² - 1) / (Φ² + 1)
 
         Properties:
-            - Asymmetry(1)   = 0   (perfect symmetry: neither being nor non-being is preferred)
-            - Asymmetry(Φ) → 1    as Φ → ∞ (maximal bias towards being)
-            - Asymmetry(Φ) → -1   as Φ → 0⁺ (formal extension towards non-being)
+            - A(1)   = 0
+              (perfect symmetry: neither being nor non-being is preferred)
+            - A(Φ) →  1    as Φ → ∞
+              (maximal bias towards being)
+            - A(Φ) → -1    as Φ → 0⁺
+              (formal extension towards non-being)
 
         Parameters
         ----------
         phi : float
-            Potential of nothingness (Φ > 0)
+            Potential of nothingness (Φ > 0).
 
         Returns
         -------
@@ -200,33 +254,40 @@ class FZVerifier:
         # tanh(log Φ) ≡ (Φ² - 1) / (Φ² + 1)
         return math.tanh(math.log(phi))
 
-
     @staticmethod
     def structure_density(t: float, k: float = 0.01, rho0: float = 1.0) -> float:
         """
-        Structure density evolution over "time" t.
+        Structure density evolution over an abstract evolution parameter t.
 
-        Model:
-            ρ(t) = ρ₀ · exp(k t)
+        Simple densification model:
+
+            ρ(t) = ρ₀ · exp(k t),
+
+        where ρ(t) can be interpreted as structural density of a world,
+        a proto-world, or a nested reality level. This is a toy model
+        used in the text to illustrate how "condensation" of reality can
+        be described mathematically.
 
         Parameters
         ----------
         t : float
-            Evolution parameter (usually time or analogous measure)
+            Evolution parameter (can be meta-time or any analogous
+            measure; not necessarily physical time).
         k : float
-            Growth rate (k > 0)
+            Growth rate (k > 0).
         rho0 : float
-            Initial density at t=0
+            Initial density at t = 0.
 
         Returns
         -------
         float
-            Density at time t.
+            Density ρ(t) at the given t.
 
         Raises
         ------
         ValueError
-            If k <= 0 (growth rate must be positive for exponential growth).
+            If k <= 0 (growth rate must be positive for exponential
+            growth).
         """
         if k <= 0:
             raise ValueError("k must be positive")

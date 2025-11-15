@@ -1,6 +1,6 @@
 test_name,parameter_p,parameter_t,expected_result,tolerance,description
-critical_point_99,1e-20,4.605170185988092e20,0.99,1e-15,"Critical point for P=0.99"
-critical_point_999,1e-20,6.907755278982137e20,0.999,1e-15,"Critical point for P=0.999"
-extreme_limit,1e-20,1e22,1.0,1e-40,"Asymptotic limit at large tp"
-symmetry_break_90,NA,4.38,0.9,1e-2,"Symmetry breaking at 90% for Φ=4.38"
-balanced_weight,NA,1e20,1.0,1e-10,"Balanced scenario of nothingness weight"
+critical_point_99,1e-20,4.605170185988092e20,0.99,1e-15,"Critical point for P=0.99 in the continuous P(t,p)=1-exp(-tp) model"
+critical_point_999,1e-20,6.907755278982137e20,0.999,1e-15,"Critical point for P=0.999 in the continuous P(t,p)=1-exp(-tp) model"
+extreme_limit,1e-20,1e22,1.0,1e-40,"Asymptotic limit P→1 at large tp in the pre-existential null domain (PND)"
+symmetry_break_90,NA,4.38,0.9,1e-2,"Symmetry breaking at 90% for Φ=4.38 in the asymmetry model A(Φ)"
+balanced_weight,NA,1e20,1.0,1e-10,"Balanced scenario of PND weight: E(Φ)=const for Φ→∞"

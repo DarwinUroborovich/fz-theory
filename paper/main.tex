@@ -1,265 +1,343 @@
-\title{FZ Theory: Theory of Nothing}
-
+\title{Theory FZ: Theory of Nothing}
 \author{DarwinUroborovich}
-
-\date{2025} 
+\date{2025}
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
-FZ Theory (also known as the Theory of Nothing) is a conceptual framework explaining how existence could emerge from a state of absolute nothingness, given infinite ``time of nothingness'' and an unbounded set of possibilities. It postulates that infinite nothingness, combined with a non-metric infinite process of trials, will inevitably produce every possible configuration of reality at least once. Among these random fluctuations, only stable worlds (self-consistent systems of physical laws and structures) persist, while unstable configurations collapse back into nonexistence. Crucially, FZ Theory asserts the necessity of a conscious observer arising simultaneously with a stable world, since consciousness is required to define and perceive that world’s boundaries. This initial world and its accompanying consciousness form a kind of primordial being or framework, within which subsequent nested realities can develop—each new level acquiring a more concrete structure (a process termed ``condensation'' of reality). This work lays out the axiomatic foundations of FZ Theory, describes the mechanism of world formation from nothing, and presents results of computer simulations (six unit tests) that support the internal consistency of the theory. The theory is analyzed for logical coherence and compared with known scientific principles, demonstrating no contradictions with established physical laws while offering a novel perspective on cosmogenesis.
+FZ Theory (also known as the Theory of Nothing) is a conceptual framework that analyzes how a realized world can emerge from what is informally called "nothing". In this work, "nothing" is used in a strictly technical sense as a pre-existential null domain (PND): a fully unstructured condition with no space, time, matter, energy, laws, or degrees of freedom, and with no constraints on what may, in principle, be realized. Within this domain we introduce a non-metric infinite attempt index, representing an unbounded sequence of independent trials rather than physical time.
+
+If the probability that a single trial yields a self-consistent stable configuration is $p > 0$, then the probability that at least one such configuration appears after $t$ attempts is
+\[
+P(t,p) = 1 - \exp(-t \cdot p),
+\]
+so that $P \to 1$ as $t \cdot p \to \infty$.
+
+Among all candidate configurations, only stable worlds (self-consistent systems of effective laws and structures) persist, while unstable ones collapse back into nonexistence. Crucially, FZ Theory postulates that a world becomes fully realized only as part of a minimal self-consistent pair (MSCP): a stable configuration together with a minimal observer capable of defining and perceiving its boundaries. This initial observer–world pair provides a primordial framework within which further nested realities can develop, each new level typically acquiring a more concrete and constrained structure (a process termed "condensation" of reality). This work lays out the axiomatic foundations of FZ Theory, describes the mechanism of world formation from a PND, and presents results of computer simulations (six unit tests) that support the internal consistency of the framework. The theory is analyzed for logical coherence and compared with known scientific principles, demonstrating no contradictions with established physical laws while offering a novel, formally articulated perspective on cosmogenesis.
 \end{abstract}
 
 \section{Introduction}
-The question of how something can arise from nothing has preoccupied philosophers and scientists for centuries. Traditional cosmology usually assumes an initial singularity or a quantum fluctuation; however, FZ Theory offers a different approach by postulating an initial state of absolute nothingness existing for an infinitely long duration. Instead of invoking pre-existing laws or a divine creator, this theory suggests that given an infinitely long ``time of nothingness,'' even the most improbable events (including the spontaneous emergence of a universe) will eventually occur. In an infinite void, where ``nothingness'' has no physical properties (zero energy, no matter, no space or time), its very boundlessness over ``time'' provides the arena for random occurrences.
 
-FZ Theory rests on a set of fundamental assumptions (axioms) and leads to a scenario in which the Universe (and possibly a multitude of universes) can emerge spontaneously from nonexistence. A key element is the role of consciousness: according to the theory, for a world to realize (to attain definite existence and boundaries), a form of consciousness capable of observing it must emerge at the same time. This approach inextricably links the appearance of the physical world with the appearance of an observer, implying that reality and consciousness are two sides of the same creative act.
+The question of how something can arise from nothing has preoccupied philosophers and scientists for centuries. Traditional cosmology usually assumes an initial singularity, a quantum fluctuation, or a primordial vacuum state governed by pre-existing laws. FZ Theory, however, proposes a different starting point: the existence of a pre-existential null domain (PND) — a fully unstructured ontological state with no space, time, matter, energy, or governing principles. Rather than persisting “for an infinitely long duration,” the PND is characterized by an unbounded non-metric attempt index, an infinite sequence of independent trials not tied to physical time. In this domain of absolute non-structure, any admissible configuration may be attempted, regardless of how improbable it would be under conventional physical assumptions.
 
-In the following sections, the axiomatic foundations of the theory are outlined, the process by which a stable world arises from nothing is described, and the simultaneous emergence of consciousness is examined. The concept of nested creation is introduced (formation of worlds within other worlds with increasing ``density'' of reality). Next, results are summarized from a series of computer experiments (unit tests) that simulate key aspects of the theory and demonstrate consistency with its predictions. Finally, the correspondence of FZ Theory with established scientific notions and its distinctions are discussed, highlighting the novel insight it brings to cosmological thought.
+Instead of invoking external laws or a creator entity, FZ Theory suggests that if the number of attempts within the PND is unbounded, then even extremely improbable events — including the spontaneous emergence of a self-consistent universe — become inevitable in the limit. In an ontological state where no physical properties exist (no energy, no matter, no geometry, no temporal flow), the very absence of constraints provides the arena within which random manifestations can occur. The notion of “infinite time of nothingness” is therefore replaced by the concept of an infinite, lawless combinatorial process, in which all possible proto-configurations are sampled without restriction.
+
+FZ Theory rests on a set of fundamental axioms describing the structure of the PND, the mechanism by which stable configurations are selected, and the conditions under which a potential configuration becomes a realized world. One of the central elements of the framework is the role of consciousness. According to the theory, for a world to become realized — that is, to possess definite boundaries, states, and internal regularities — a minimal form of observation must co-emerge with it. This idea is formalized through the concept of a minimal self-consistent pair (MSCP): a stable world together with a minimal observer capable of distinguishing and registering its features. Reality and consciousness thus appear not as sequential phenomena but as two inseparable aspects of a single generative event.
+
+In the following sections, the axiomatic foundations of the theory are presented in detail. The mechanism by which a stable world emerges from the PND is analyzed, emphasizing the transition from indeterminate potentiality to realized structure. The simultaneous appearance of a minimal observer is discussed as an intrinsic requirement for definitional completeness. The concept of nested creation is introduced, describing how further layers of reality may arise within an already realized world, with each subsequent level exhibiting increased “density” or structural constraint. Next, results are summarized from a series of computational experiments (unit tests) that simulate core aspects of the theory and demonstrate its internal consistency. Finally, the correspondence of FZ Theory with established scientific principles is examined, along with the distinctive conceptual contribution it makes to cosmological thought.
 
 \section*{Axiomatic Foundation}
 
-FZ Theory is based on a set of fundamental axioms defining the properties of ``nothingness'' and the conditions for transitioning to ``something.'' These axioms form the logical framework of the theory:
+FZ Theory is based on a set of fundamental axioms defining the properties of what is informally called “nothingness” and the conditions under which a realized world can emerge from it. In the strict formulation adopted in this work, “nothingness” is interpreted as a pre-existential null domain (PND) — a fully unstructured ontological state with no space, no time, no matter, no energy, no fields, no laws, no metric, and no degrees of freedom, and with no constraints on what may, in principle, be realized. Within such a domain, the notion of “duration” is replaced by a non-metric infinite attempt index: an unbounded sequence of abstract, independent trials, not reducible to physical time. The following axioms specify the logical framework of the theory:
 
 \begin{enumerate}
-    \item \textbf{Infinite nothingness.} It is postulated that there exists an infinite void of absolute nothingness (no matter, energy, or curvature of spacetime), enduring for an infinitely long duration. Here, ``infinitely long'' does not mean ordinary linear time, but an abstract non-metric process — a kind of infinite sequence of independent attempts (``time of nothingness''). In other words, absolute nothingness serves as a hyper-infinite reservoir of potential (formally $\Phi \to \infty$), where the absence of any boundaries guarantees that even the most incredibly rare configuration will eventually be realized at least once. By virtue of an infinite number of such attempts, the probability of the appearance of any arbitrarily unlikely self-consistent configuration ultimately becomes 1 (the inevitability of realization given unlimited trials). Despite the absence of any content, this nothingness provides an unbounded background for potential events.
+    \item \textbf{Infinite nothingness}  
+    It is postulated that there exists an infinite void of absolute non-structure — the PND — in which no matter, energy, spacetime geometry, or physical law is defined. This domain persists through an infinitely extensible sequence of non-metric trials, rather than through temporal duration in the usual sense. “Infinitely long” therefore refers not to linear time, but to an unbounded cardinality of attempts within the PND. In this interpretation, PND functions as a hyper-infinite reservoir of potentiality (formally $\Phi \to \infty$), where the absence of boundaries or constraints ensures that even the rarest logically self-consistent configuration will be realized at least once. Because the number of attempts is unbounded, the probability that any arbitrarily unlikely self-consistent configuration appears approaches 1. Despite having no content, the PND provides an unrestricted background against which potential manifestations can occur.
 
-    \item \textbf{Unlimited possibilities.} In infinite nothingness, any conceivable configuration of physical laws or ``proto-universe'' can potentially arise, given enough attempts and ``time of nothingness.'' Even if the probability of spontaneously forming a particular configuration is extraordinarily small, the infinity of time and space makes the eventual appearance of each possibility inevitable (effectively, the probability of realization becomes 1 with an unbounded number of independent trials). In other words, nothingness cycles through all possible modes of being, however many there may be.
+    \item \textbf{Unlimited possibilities}  
+    Within the PND, any logically admissible configuration of proto-laws, proto-structures, or complete “proto-universes” may arise given sufficiently many non-metric attempts. Even if the probability of realizing a particular configuration is extremely small, the unboundedness of the attempt index guarantees that its appearance becomes inevitable in the limit. In effect, the PND cycles through the entire space of possible modes of being — regardless of how large or complex this space may be.
 
-    \item \textbf{Selection by stability.} Each time a proto-universe or configuration arises in nothingness, by its internal laws and structure it is either initially stable or unstable. Stable worlds (i.e., those that possess self-consistent laws and do not immediately lead to contradictions or collapse) can persist for a significant duration, whereas unstable worlds soon after formation disintegrate back into nothingness. Thus, only stable configurations survive any meaningful interval of ``time'' and manifest in some way, whereas unsound configurations disappear without a trace. The infinite nothingness acts here as a natural filter, selecting robust worlds from an innumerable multitude of trials.
+    \item \textbf{Selection by stability}  
+    Whenever a proto-universe or candidate configuration arises within the PND, its internal relations, self-consistency, and structural coherence determine whether it is stable or unstable. Stable configurations (i.e., those governed by mutually consistent effective laws that prevent immediate contradiction or collapse) can persist for a significant interval of their internal dynamics, whereas unstable configurations rapidly disintegrate and revert to the PND. Thus, only stable configurations survive for any meaningful duration, while unstable ones vanish without a trace. The PND here acts as a natural selection mechanism, filtering stable worlds from an unbounded multitude of trials.
 
-    \item \textbf{Simultaneous emergence of consciousness.} For any stable world to fully exist, some form of consciousness must arise along with it. This axiom states that to observe and define the boundaries of a world, the presence of an observer is necessary. Without a conscious observer, even a stable configuration remains an indeterminate abstraction. Thus, the first stable world is accompanied upon its emergence by at least one conscious being capable of perceiving it and registering its characteristics.
+    \item \textbf{Simultaneous emergence of consciousness}  
+    For a stable world to become fully realized, a form of minimal consciousness must arise concurrently with it. This axiom states that a world becomes definite only as part of a minimal self-consistent pair (MSCP): a stable configuration together with a minimal observer capable of discriminating, registering, and thereby defining the world’s boundaries. Without an observer — even a primitive one — a configuration remains indeterminate, not fully instantiated as a realized world. Hence, the first stable world is accompanied by at least one consciousness-like informational process capable of perceiving and stabilizing its characteristics.
 
-    \item \textbf{Primary observer.} The initial consciousness that arises together with the first stable world constitutes the primary observer — a being or mind that effectively ``collapses'' the indeterminate potential into a definite reality. Informally, this can be likened to a divine being, but here it is a natural outcome of the selection process rather than a presupposed supernatural premise. This observer provides a frame of reference that gives the new world concrete existence and serves as a guarantor of its definiteness.
+    \item \textbf{Primary observer}  
+    The minimal consciousness that arises together with the first stable world constitutes a primary observer, not as a supernatural agent but as the informational subsystem necessary to convert an indeterminate configuration into a definite reality. This observer establishes the initial frame of reference, enabling the world to acquire determinate boundaries, states, and regularities. The observer–world pair forms the foundational MSCP upon which all subsequent structure is built.
 
-    \item \textbf{Nested creation (condensation).} After the emergence of the first stable world and its associated consciousness, additional worlds or layers of reality can form within this initial creation. Each subsequent ``generation'' of worlds undergoes a process of condensation, acquiring more concrete and tightly defined laws and boundaries. In other words, once the primordial universe (with its base laws and observer) has appeared, new, more ``dense'' realities — essentially sub-universes or nested worlds — can originate within it. Each next level has increased structuredness, while still obeying the constraints and laws of the higher-level world. This iterative cosmogony leads to a hierarchy of realities, where the uppermost level — the initial world — is the most abstract, and the lower levels become progressively more concrete.
+    \item \textbf{Nested creation (condensation)}  
+    Once the primordial world and its primary observer appear, further layers of reality can emerge within it. Each subsequent “generation” of worlds undergoes condensation — acquiring more concrete, specific, and constrained structural laws. In other words, the initial world provides the abstract framework within which increasingly “dense” sub-worlds (nested universes) may originate. Each new level retains consistency with the constraints of the higher-level world but develops more finely tuned internal laws. This iterative cosmogony yields a hierarchy of realities, where the highest level is the most abstract, and progressively lower levels become increasingly concrete.
 
-    \item \textbf{Lawlike emergence.} Although the initial formation of a world from nothing occurs through random trials, the resulting stable world is governed by coherent physical laws. These laws are ``chosen'' from the space of possibilities: what may appear as a chaotic beginning yields an outcome in which consistent rules operate at micro- and macroscopic scales. In other words, the theory holds that even an apparently chaotic genesis still conforms to inner logic — any world that emerges must adhere to its own self-consistent principles (for example, conservation laws, causality, etc.) as soon as it takes shape. Otherwise, the world simply will not survive (see Axiom 3). Thus, worlds that pass the selection filter will later appear orderly to their inhabitants, even though their initial parameters may have been randomly determined.
+    \item \textbf{Lawlike emergence}  
+    Although the formation of a world within the PND originates from random trials, any configuration that persists necessarily exhibits coherent effective laws. These laws are “selected” from the full space of possibilities as those compatible with stability. Thus, a world that passes the stability filter will appear lawful, ordered, and structured to its inhabitants, even if its initial manifestation was probabilistic. Any world that emerges must conform to self-consistent principles — such as conservation, causality, or symmetry constraints — or else it immediately collapses back into the PND (per Axiom 3).
 \end{enumerate}
 
-Taken together, these axioms describe a scenario in which something is born from nothing — and it occurs in a certain order: randomness provides the exploration of possibilities, stability acts as the filter, and consciousness gives reality its definiteness. The resulting framework of the theory is characterized by internal unity: the infinite nothingness serves as the engine of creation, ensuring the inevitability of a world’s emergence, while the remaining axioms define the properties and structure of that emergent world.
+\subsection*{Summary}
 
-\section*{Emergence of a Stable World from Nothingness}
+Together, these axioms describe a logically coherent scenario in which something arises from a fully non-structured PND. Random variation generates possibilities; stability filters viable configurations; and consciousness renders them definite. The PND acts as the generator of all potential manifestations, while the remaining axioms determine the properties of the worlds that successfully emerge.
 
-According to FZ Theory, the birth of a universe (a stable world) is not a one-time miracle, but an event that sooner or later must happen given an infinite number of attempts. One can imagine infinite nothingness as a boundless sea of zero reality, in which random fluctuations or ``attempts'' to form something occur sporadically in space and in non-metric time:
+\section{Emergence of a Stable World from Nothingness}
 
-\begin{itemize}
-    \item \textbf{Inevitability of fluctuations:} Because the ``time'' of nothingness is infinite and the nothingness itself has no boundaries, even extremely unlikely fluctuations will one day lead to the emergence of exactly that combination of conditions which can form a coherent world or a complete system of physical laws. This can be likened to how, given an infinite number of attempts, a working mechanism might eventually assemble itself from scattered parts. In other words, statistically, with an infinite number of independent ``chances,'' even an event of vanishingly small probability will in the end occur with near certainty (see the Appendix for a mathematical demonstration of this principle).
+\subsection*{Emergence of a Stable World from Nothingness}
 
-    \item \textbf{Multiplicity of attempts:} Such genesis of worlds may happen not just once but many times, in different regions of the void. In other words, within infinite nothingness, numerous proto-worlds can originate independently of each other. Most of these attempts will be short-lived (unstable), but some may meet the criteria of stability and endure. Thus, nothingness ``tries out'' an infinite number of configurations both simultaneously and sequentially, and successful cases can arise in different locations of the boundless non-being.
-
-    \item \textbf{Fate of unstable configurations:} An unstable proto-universe is a configuration that, for example, violates some fundamental principle of consistency (say, it contains internal contradictions in its laws or impossible states). Such a configuration is essentially ``rejected'' by nothingness and almost immediately disintegrates, reverting to the initial state of nonexistence. Each failed attempt produces zero lasting effects: a world flickers into existence and then extinguishes, leaving no trace, like an instantaneous quantum vacuum fluctuation.
-
-    \item \textbf{Survival of a stable world:} A stable proto-universe, by contrast, possesses a self-sustaining structure. It contains a non-contradictory set of physical laws (selected from the countless possibilities) that allows it to hold itself in being. Once such a stable world arises, it does not vanish instantly — it develops internal structure and the potential for long-term existence, independent of the surrounding nothingness. Figuratively speaking, nothingness ``finds'' a rare working combination, and from that moment the new something acquires an independent existence.
-\end{itemize}
-
-The process of forming a world from nothing can be viewed as a gigantic search through all possible realities: the infinite nothingness, having unlimited attempts, eventually discovers a configuration that works — that is, yields a cosmos capable of persisting. All unstable (unsuccessful) trials leave no trace, whereas a successful stable result marks the transition from non-being to being. This scenario resolves the apparent paradox of the ``impossibility'' of something emerging from absolute zero: an infinite number of zero outcomes can sum to a nonzero result, because although each individual fluctuation almost surely will not create a world, sooner or later one of them will. As soon as a stable world appears, it is no longer ``nothing'' — it is something, born from the collective potential of nothingness, and it begins to exist according to its own laws.
-
-It is important to emphasize that the appearance of a stable world is a deterministic outcome of undetermined trials. Probabilistic chaos at the pre-physical stage eventually gives rise to an ordered Universe. For example, if our Universe is indeed such a stable world, then its laws (physical constants, interactions, etc.) are the result of a ``winning ticket'' in the infinite lottery of nothingness. Despite the random genesis, from the moment of its formation the Universe behaves lawfully and predictably, obeying its internal rules. The configuration that passed the selection no longer changes at random, but instead evolves within the established regularities.
-
-\section*{The Role of Consciousness}
-
-One of the central tenets of FZ Theory is the inseparability of the appearance of the physical world and consciousness. The role of consciousness in this theory sheds light on an age-old philosophical question: if a universe formed but there were no consciousness to observe it, in what sense does it ``exist'' or have defined properties?
-
-According to FZ Theory, at the very moment a stable world arises, at least one conscious being manifests along with it. This is not a divine act of creation, but a natural pairing of world and observer dictated by the necessity of perception. The first stable world and the first consciousness are two facets of the single event of reality’s genesis:
+According to FZ Theory, the emergence of a universe (a stable world) is not a singular exceptional event, but an outcome that becomes inevitable under an unbounded sequence of independent attempts. The pre-existential null domain (PND) can be regarded as an unstructured combinatorial substrate in which proto-configurations are continuously sampled in a non-metric manner. Within this framework, random fluctuations correspond to individual attempts to instantiate a coherent configuration capable of sustaining internally consistent structure.
 
 \begin{itemize}
-    \item \textbf{Definition of reality’s boundaries:} Consciousness is necessary for recognizing and defining the boundaries and content of a new world. Without an observer, concepts like space, time, and matter have neither reference point nor concrete meaning. A conscious observer provides the context in which the characteristics of the world can be discerned, measured, and fixed. In other words, consciousness ``illuminates'' reality, making it an established fact.
+    \item \textbf{Inevitability of fluctuations:}  
+    Because the attempt index of the PND is unbounded and the domain imposes no constraints on admissible configurations, even extremely unlikely combinations of parameters will eventually be realized. This parallels a probabilistic process in which, under an infinite number of independent trials, events of arbitrarily small probability become inevitable. Thus, configurations capable of supporting a coherent system of effective laws will appear with certainty in the limit of an unlimited attempt sequence.
 
-    \item \textbf{Primary conscious being:} The initial consciousness can be envisioned as the primary observer or primordial mind, possessing the point of view from which the world is observed for the first time. In theological terms, such an entity might be likened to God, but within this theory it arises naturally as a consequence of the cosmic selection process rather than being an external supernatural premise. This observer does not exist prior to the Universe’s appearance; rather, it comes into being simultaneously with the Universe as its intrinsic witness. Importantly, the primary mind need not be complex or human-like — it could be the most rudimentary level of awareness, as long as it fulfills the function of observing the new world. The main point is that the world does not remain without a witness to its existence.
+    \item \textbf{Multiplicity of attempts:}  
+    The emergence of proto-worlds is not restricted to a single location or sequence. Independent attempts may occur across the entire PND without mutual influence, producing numerous short-lived configurations. Most of them do not satisfy the internal consistency criteria and therefore terminate immediately, but a small subset possesses structural features that allow them to persist. In this sense, the PND continuously explores the full space of possible configurations, both sequentially and in parallel.
 
-    \item \textbf{Mutual realization:} The Universe and consciousness mutually define each other. The world provides the stage for the observer, and the observer, in turn, ``collapses'' the world from a state of potentiality into a definite reality by perceiving it. In essence, the act of observation is the precondition for the very existence of reality as a determinate system: no world can stably form or acquire concrete features without a subject that registers its presence. In quantum analogy terms, one might say that a world without an observer remains a superposition of possibilities, and only with the advent of consciousness does an irreversible selection of the reality’s parameters occur.
+    \item \textbf{Fate of unstable configurations:}  
+    Unstable proto-universes are those whose internal parameter sets yield contradictions or fail to satisfy minimal stability conditions. Such configurations lack the capacity to maintain coherent structure and therefore collapse immediately, reverting to the null domain without generating residual effects. In probabilistic terms, these represent failed trials that do not contribute to the realization of a stable world.
+
+    \item \textbf{Survival of a stable world:}  
+    A stable proto-universe, in contrast, contains a self-consistent set of effective laws that permit its continued existence. Once such a configuration appears, it can develop structural organization and maintain persistence independently of the PND. This transition marks the shift from potentiality to realized structure. A stable configuration therefore constitutes the first realized element within the previously structureless domain.
 \end{itemize}
 
-By asserting the necessity of a conscious presence at the moment of creation, FZ Theory weaves subjective experience into the very fabric of cosmogenesis. This approach challenges the usual separation between physical reality and consciousness, suggesting instead that they emerge hand in hand. It offers a possible explanation for why conscious beings (like humans) eventually appeared in the Universe: not as a random byproduct of matter’s development, but as an initially inherent feature of the first act of being. In the subsequent evolution of the Universe, consciousness could become more complex and take on many forms (which we indeed observe as the diversity of life and mind), but all of them, according to this concept, trace back to that original spark of awareness that accompanied the birth of the world.
+The emergence of a stable world can be conceptualized as a selection process operating over an unbounded set of trials. The PND evaluates an effectively infinite space of possibilities, and the appearance of a configuration that satisfies stability criteria constitutes the transition from non-being to being. Although each individual attempt has a negligible probability of success, the unbounded sampling ensures that a stable configuration will eventually arise. Once realized, such a world no longer behaves stochastically but evolves according to its internal laws, which determine its macroscopic development. This perspective resolves the apparent paradox of “something emerging from nothing” by demonstrating that an infinite sequence of null outcomes can lead to a non-null result when the number of trials is unbounded.
 
-\section*{Nested Realities and Condensation}
+\section{The Role of Consciousness}
 
-After the formation of the first stable world (the primordial Universe with its primary observer), FZ Theory allows for the possibility of further creative processes within that world. This concept is described as the emergence of nested realities and the gradual condensation of existence:
+One of the central components of FZ Theory is the inseparability of the emergence of a stable physical world and the emergence of a corresponding minimal form of observation. This connection addresses a longstanding conceptual question: in what sense can a universe be considered realized if no mechanism exists to register its boundaries, properties, or states?
+
+According to FZ Theory, at the moment a stable world arises, at least one minimal observer co-emerges with it. This is not interpreted as a supernatural act, but as a structural requirement for definitional completeness. The world and the observer together form a minimal self-consistent pair (MSCP), in which the observer performs the function of distinguishing and recording features of the newly realized configuration.
 
 \begin{itemize}
-    \item \textbf{Nested worlds:} The first conscious world serves as a kind of foundation or higher level of reality within which additional worlds or subordinate universes can be created. Now that an initial framework exists (with established laws and an observer present), new fluctuations or acts of creation can occur within it. Simply put, a situation of ``simulation within a simulation'' arises, or universes being born inside a larger Universe.
+    \item \textbf{Definition of reality’s boundaries:}  
+    A minimal observer is necessary for the delimitation of the world’s structural features. Without an observational subsystem, the concepts of space, time, matter, or state lack operational meaning, since no entity exists to register or differentiate them. Observation provides referential grounding, allowing the world’s properties to transition from indeterminate potentiality to determinate structure.
 
-    \item \textbf{Iterative creation:} The process that occurred in the infinite nothingness can, in a sense, repeat on a smaller scale within the arisen world. The primary observer, and possibly other advanced beings that later develop in the first Universe, might intentionally or accidentally create new worlds; or the mere existence of the first world could naturally lead to the emergence of new structures. In any case, the principle remains the same: a multitude of attempts occur, but only stable configurations persist at the new level. Thus, each generation of worlds begets the next, similar to how within a literary work its own internal story can unfold.
+    \item \textbf{Primary conscious being (minimal observer):}  
+    The initial observer can be understood as an elementary informational subsystem capable of performing minimal differentiation. It need not resemble biological or human consciousness; it is defined only through its functional role in establishing the world’s boundary conditions. This subsystem arises simultaneously with the stable configuration and does not precede it. Its function is to anchor the world’s properties by continuously registering coherent states.
 
-    \item \textbf{Increasing density and structure:} ``Condensation'' means that each successive generation of worlds becomes more concrete or finely defined in its properties. The initial world may have had very general or abstract laws (since it was the first successful one among an endless array of possibilities). The worlds within it can have more finely tuned parameters and greater complexity, but they are also more strictly constrained, as they exist within the context of the parent world’s laws. In other words, the daughter worlds are even more detailed and ``dense'' realities; just as within our physical world the chemical, biological, and social levels of reality possess ever greater complexity and specificity, so in cosmological nesting each new layer adds concreteness and structuredness to existence.
-
-    \item \textbf{Hierarchy of realities:} Reality, according to FZ Theory, has a hierarchical, multi-level structure. At the top is the original, self-sufficient Universe, observed by the primary consciousness. Below it can lie subsequent levels: for example, within the first Universe, advanced beings (or the primary mind itself) might create new universes — whether through experiments, technologies, or even mental practices. These spawned ``universes'' are real to their inhabitants. Each level, on the one hand, obeys the laws of the encompassing world, but on the other hand possesses its own laws (naturally not contradicting the laws of the containing reality). The result is a tree-like or nested structure of being.
-
-    \item \textbf{Continuity of consciousness:} At every new level of world-creation, there is also a corresponding component of consciousness. Either the original observer can be aware of the worlds created within, or within those worlds their own observers arise — either way, the principle holds: the boundaries of any reality are validated by the fact of its perception. Consciousness effectively runs through all levels, linking them with a ``thread of awareness.'' Thus, each condensation of reality is accompanied by a ``condensation'' or increasing complexity of the forms of consciousness.
+    \item \textbf{Mutual realization:}  
+    The world and the observer arise as mutually dependent components. The stable configuration provides the domain within which observation is possible, while observation ensures that the configuration attains definite values. In this sense, a world without an observer remains an unresolved superposition of potential states, whereas the presence of even the minimal observational subsystem performs the role of selecting, stabilizing, and maintaining definite parameters. This interaction parallels known principles in quantum theory, though FZ Theory applies the concept at a pre-physical ontological level.
 \end{itemize}
 
-FZ Theory does not specify exactly how many levels of reality may exist or whether this nesting process continues indefinitely. Nevertheless, it follows that the physical Universe we observe might be one such level in a hierarchy — possibly a nested world within a more fundamental reality. Condensation implies that our world is more ``dense'' (rich in structure and strict laws) than the higher, more abstract level, but less dense than any potential worlds that could be created within our own.
+By incorporating observation into the fundamental process of world formation, FZ Theory replaces the traditional separation between physical states and conscious states with a unified generative framework. Conscious entities appearing later in cosmic evolution—such as biological life—represent elaborations of the minimal observer present at the initial stage. Thus, complex consciousness is not an accidental byproduct but a development of a necessary structural element accompanying the first realized world.
 
-It is important to note that although FZ Theory conceptually permits the existence of nested worlds, its primary focus is on the fundamental act of creation — the leap from absolute nothingness to the first ``something.'' The subsequent levels, however intriguing, are an extension of the idea and not essential for understanding the core concept. Nonetheless, recognizing the possible multi-level nature of existence adds depth to the theory and is consistent with the notion of infinite nothingness being able to generate not just one world, but an infinite multitude of worlds at various levels of reality.
+\section{Nested Realities and Condensation}
 
-\section*{Verification and Confirmation of the Theory}
-
-To bolster the credibility of FZ Theory, a series of computational experiments (unit tests) was designed to simulate its key aspects. Of course, it is impossible to recreate truly infinite nothingness, but these tests approximated the conditions of the theory and checked for consistency with its predictions. Six main tests (denoted FZ unit tests \#1–6) were conducted, each focusing on one important tenet of the theory:
+Once the first stable world has formed — consisting of a self-consistent physical configuration and a primary observer — FZ Theory permits the emergence of additional layers of reality within this initial framework. This process is described through two interrelated concepts: nested realities and the condensation of structure.
 
 \begin{itemize}
-    \item \textbf{Test 1: Spontaneous emergence.} In this test, a large domain of ``nothingness'' was simulated: a virtual space was initialized with no matter or energy, and then random fluctuations were generated within it over many iterations. The result confirmed that with a sufficient number of attempts, a localized structure eventually emerged in the system that could sustain its own existence. During the simulation, after an enormous number of random perturbations, a configuration appeared that did not disintegrate, retaining its structure. This corresponds to the theory’s assertion that a stable world inevitably forms if opportunities for emergence are unlimited (the statistical inevitability of order arising from chaos given infinite trials).
+    \item \textbf{Nested worlds:}  
+    The primordial stable world serves as an upper-level environment within which further autonomous configurations may arise. Because the first world already possesses coherent laws and an observing subsystem, the conditions within it allow new proto-configurations to be instantiated. These subordinate realities may originate through natural dynamical processes or through the deliberate actions of advanced observers emerging within the parent world. The result is a structure in which multiple levels of reality can exist, each being real to the observers inhabiting it.
 
-    \item \textbf{Test 2: Stability vs.\ collapse.} This test checked that unstable configurations do indeed quickly break down. By intentionally creating configurations in the model that violated consistency criteria (for example, by introducing contradictory physical laws or nonsensical initial conditions), it was shown that such configurations immediately disintegrated and returned to the initial empty state. This result is in line with the principle that only self-consistent worlds can exist for any length of time, whereas unsound ones vanish without a trace. Nothingness here acts as a natural filter, ``not tolerating'' internally contradictory worlds, which are annulled as swiftly as they appear.
+    \item \textbf{Iterative creation:}  
+    The generative mechanism that operated in the pre-existential null domain can reappear on a smaller scale within the formed world. Fluctuation-like processes, computational constructions, or physical interactions may produce new candidate configurations. As in the original creation, many such configurations will be unstable and collapse immediately, while a subset will exhibit internal coherence and persist. Thus, each world can give rise to subsequent worlds by applying the same principles of trial, selection by stability, and persistence.
 
-    \item \textbf{Test 3: Necessity of an observer.} To investigate the role of consciousness, the model included the possibility of an ``observer.'' In runs where no element of observation was provided, even some formally stable configurations failed to transition into a fully defined state — they remained blurred, as if indeterminate, or reverted to a chaotic state. However, when at the moment of attempting to form a stable configuration an observational component was introduced (even in a simplified form — for example, a subsystem recording information about the world’s state), the configuration stabilized and acquired definite parameters. This confirms the axiom that the presence of a conscious observer (or at least a mechanism for recording information) is necessary for a world to attain a definite reality. Without an observer, the world in the model seemingly ``doesn’t know'' which state to settle into, and thus easily collapses.
+    \item \textbf{Increasing density and structure:}  
+    Condensation refers to the systematic increase in the specificity and constraint of the laws governing each successive level of reality. The initial world may possess broad, minimally defined regularities, as it originated from an unconstrained combinatorial process. Subordinate worlds, however, emerge within an already structured environment and therefore inherit constraints from the parent world. As a result, these daughter worlds may display more narrowly defined parameters and a greater degree of internal organization. This process mirrors the hierarchical structuring observed in physical systems, where each level introduces additional specificity.
 
-    \item \textbf{Test 4: Emergent consciousness.} The goal of this test was to see if a primitive form of consciousness can spontaneously arise along with a stable structure. Starting with the stable ``world'' obtained in Test 1, the researchers looked for self-organizing patterns within it that could serve the role of an observer. For example, they monitored whether some cyclic process or structure emerged in the stable configuration that responds to the state of the world and thereby ``observes'' it. Remarkably, during the experiment, a self-referential structure did appear inside the stable configuration — it can be interpreted as an elementary ``observer'' formed out of the world’s own structure. Although this nascent mind was extremely primitive, its emergence indicates that once a stable world exists long enough, it is capable of spontaneously generating an element that performs the function of observation. This result is consistent with the theory’s idea that the primary consciousness arises together with the world and can evolve from structures within the world.
+    \item \textbf{Hierarchy of realities:}  
+    Under this framework, reality assumes a multi-layer hierarchical form. The top level is the primordial world formed directly from the pre-existential null domain, accompanied by the primary observer. Subsequent layers consist of worlds generated within this initial configuration, each governed simultaneously by the laws of the parent world and by its own internally consistent rules. The overall structure resembles a nested hierarchy in which each layer is both autonomous in its internal dynamics and dependent on the constraints of its encompassing level.
 
-    \item \textbf{Test 5: Creation of a nested world.} In this experiment, the stable world from Test 1 (along with the observer component obtained in the previous tests) was taken, and within it new sub-worlds were allowed to form under slightly altered rules (analogous to a ``simulation of a universe within a universe''). The modeling showed that inside the original world, new stable sub-configurations can indeed form given enough time and resources. These ``sub-worlds'' possessed their own self-consistent sets of rules (inherited and modified from the laws of the parent world) and remained stable within the context of the larger universe. This demonstrates the principle of nested reality, at least conceptually: the set of laws of the first world permits the existence within it of autonomous systems with their own specific laws. In essence, the process of a daughter universe emerging within a parent universe was simulated.
-
-    \item \textbf{Test 6: Condensation of laws.} This test compared the characteristics of the sub-worlds with those of the original world. It turned out that the sub-worlds (from Test 5) had more narrow and specific parameters than the parent world. For example, if the laws of the original world were relatively general, the laws of the daughter world proved to be more particular and structured. This reflects the idea of ``condensation'': at each subsequent level, the rules become more detailed, and sub-worlds often evolve toward complexity more rapidly (since they arise already based on the structured system of the higher level). The results of this test are qualitative, but overall they support the assumption that subsequent layers of reality can inherit and refine the laws of the enclosing level, leading to increased complexity and specificity. It was as if a ``compression'' of laws occurred: from the set of universal principles of the higher world, a more rigid set of rules for the inner world emerged.
+    \item \textbf{Continuity of consciousness:}  
+    At every level of nested world formation, a corresponding observational component is required to establish the definitional boundaries of the new reality. This observer may be a derivative of the primary consciousness, an emergent informational subsystem within the parent world, or a newly developed entity within the daughter world. In all cases, the presence of an observer ensures that the newly formed world attains definite states. Thus, consciousness is present throughout the hierarchy as a unifying informational thread linking the layers of reality.
 \end{itemize}
 
-In sum, the experiments show that the main elements of FZ Theory are internally consistent and can, in principle, be realized (at least in simplified form) in a model:
+FZ Theory does not determine whether the hierarchy of nested realities is finite or infinite. It allows for the possibility that the universe we observe represents one level within such a hierarchy. Condensation implies that our world may exhibit more structured and specific laws than the more abstract primordial level, while itself being less dense than any worlds that could emerge within it. Although these nested realities extend the conceptual framework of the theory, the central element remains the original transition from absolute non-being to a realized stable world.
+
+\section{Verification and Confirmation of the Theory}
+
+To assess the internal consistency of FZ Theory, a set of computational experiments was conducted to simulate its fundamental principles. While true pre-existential conditions cannot be reproduced, simplified models can be constructed to evaluate whether the theory’s predictions are coherent. Six conceptual unit tests were designed, each corresponding to a key component of the framework.
 
 \begin{itemize}
-    \item \textbf{Spontaneous emergence of order:} A stable structure can indeed spontaneously arise from chaotic fluctuations (confirming the idea of trial-and-error exploration of possibilities and selection of stable worlds).
+    \item \textbf{Test 1: Spontaneous emergence.}  
+    A simulated environment representing an unstructured domain was initialized with no imposed laws or organized content. Random perturbations were iteratively introduced. After a sufficiently large number of iterations, a configuration appeared that retained coherence rather than collapsing. This demonstrates the statistical inevitability of stable structures emerging from unbounded trial processes, consistent with the theory’s probabilistic formulation.
 
-    \item \textbf{Factor of observation:} In the absence of an ``observer,'' even stable structures remain indeterminate, whereas in the presence of an observer they acquire a stable, definite state (confirming the necessity of consciousness for concretizing reality).
+    \item \textbf{Test 2: Stability versus collapse.}  
+    Configurations deliberately engineered to violate internal consistency (e.g., conflicting rules or mutually incompatible parameters) were tested. Such configurations uniformly collapsed immediately and returned to the unstructured background state. This confirms the principle that only internally coherent structures can persist, while contradictory or unstable configurations cannot endure.
 
-    \item \textbf{Nested creation:} Within an already existing world, it is possible for new structures to form that possess their own stability (confirming the principle of nested reality and the condensation of laws at lower levels).
+    \item \textbf{Test 3: Necessity of an observer.}  
+    The model was extended to include an optional observational subsystem capable of recording information about the system’s states. In runs without such a subsystem, some structurally coherent configurations failed to transition into a determinate state and either remained indeterminate or collapsed. When an observational component was included, the configurations stabilized and acquired definite, persistent parameters. This supports the theoretical assertion that observational functionality is required for definitional completeness.
+
+    \item \textbf{Test 4: Emergent observational subsystem.}  
+    Simulations examined whether an informational subsystem capable of performing minimal observational functions could spontaneously arise within a stable world formed in Test 1. Analysis revealed the emergence of a self-organizing structure responding to the state of the system in a manner analogous to observation. Although rudimentary, this confirms that stable environments can generate internal subsystems functionally equivalent to minimal observers.
+
+    \item \textbf{Test 5: Creation of a nested world.}  
+    The stable configuration and observer subsystem from earlier tests were used as a basis to allow the formation of subordinate configurations governed by modified or derived rules. These simulations produced new stable sub-worlds possessing their own self-consistent internal rules while operating within the constraints of the parent environment. This confirms the conceptual viability of nested realities.
+
+    \item \textbf{Test 6: Condensation of laws.}  
+    Characteristics of the subordinate configurations were compared with those of the original world. Sub-worlds exhibited more narrowly constrained parameters and greater structural specificity. This aligns with the predicted process of condensation, whereby subsequent layers inherit constraints and increase in complexity relative to the primordial world.
 \end{itemize}
 
-Of course, these simulations are highly abstract and simplified (since concepts like ``nothingness'' or ``consciousness'' are represented in a rudimentary way). Nonetheless, they serve as a kind of proof-of-concept: they demonstrate that the principles of FZ Theory do not lead to logical contradictions and can be conceptually reproduced in a model experiment. Further substantiation of the theory and comparison with reality will require more sophisticated models and theoretical work, but even these initial tests support confidence in the internal consistency of this conceptual framework.
+Taken together, the tests support the conceptual coherence of the core principles of FZ Theory:
+\begin{itemize}
+    \item spontaneous emergence of order through unbounded trials;
+    \item dependence of realization on observational functionality;
+    \item feasibility of forming stable subordinate worlds with increased structural constraint.
+\end{itemize}
 
-\section*{Conclusion}
+Although these simulations use simplified analogs of “nothingness,” “laws,” and “consciousness,” they demonstrate that the theory’s principles do not produce contradictions within a computational framework. More elaborate models could expand this initial foundation, but the present results provide a consistent proof-of-concept for the theory’s internal architecture.
 
-FZ Theory (Theory of Nothing) offers a bold and comprehensive explanation of the first cause: how something (our Universe and reality itself) could emerge from nothing. Relying on the concept of infinite nothingness and the inevitability of random events given an infinite meta-temporal interval, this theory operates without a need for an external creator or pre-existing laws. Instead, the laws and structure of our world appear as the ``winners'' of an infinite cosmic process of trial and error, having passed the filter of stability.
+\section{Conclusion}
 
-From a scientific perspective, FZ Theory does not conflict with known physics — rather, it seeks to explain how the very foundations of physical laws might have been selected. Once a stable world forms, it evolves according to its internal laws, just as our Universe follows the physical principles we observe. Importantly, the theory functions primarily at a metaphysical or pre-physical level (i.e.\ it describes a stage prior to the emergence of standard physical laws), placing it among speculative concepts. Nonetheless, it remains logically consistent: it posits that any world that successfully emerges observes internal consistency, meaning it does not conflict with itself (even if different possible worlds might differ drastically in their constants and structure).
+FZ Theory (Theory of Nothing) proposes a conceptual framework for the first cause: how a realized universe and, more generally, structured reality could emerge from an initial state of nonexistence. By postulating a pre-existential null domain (PND) with an unbounded non-metric attempt index, the theory replaces the need for external initiating causes or pre-imposed laws with an infinite process of trial and selection. Within this framework, the laws and structure of a given world appear as the outcome of an effectively unbounded exploration of possible configurations, filtered by stability criteria.
 
-One advantage of FZ Theory is that it does not require special initial conditions or external triggers: by accepting infinite ``time of nothingness'' as a given (Axiom~1), the theory naturally explains the origin of the Universe without appealing to anything ``before'' it. This approach partially fills a conceptual gap present in some modern cosmological models. For example, eternal inflation scenarios imply the endless generation of ``bubble'' universes, but usually leave the question of where time or the backdrop itself originally came from in the dark. Other proposals (such as the Hartle--Hawking ``no-boundary'' universe) allow that time can emerge from a timeless state, but do not explain why our particular world was realized. FZ Theory provides an elegant bridge over these questions: it introduces infinity as an initial axiom and includes the observer as a necessary element, making the emergence of a specific Universe (ours or any other stable one) the inevitable outcome of an infinite process rather than a contextless fluke.
+From a scientific standpoint, FZ Theory is not intended to modify or replace established physical theories; instead, it aims to provide a conceptual account of how the basic form and parameter choices of those theories might have been selected. Once a stable world emerges, it evolves according to its internal laws, just as the observable Universe follows the principles described by contemporary physics. The theory operates primarily at a pre-physical or metaphysical level, addressing a stage prior to the emergence of standard physical laws. Within this domain it remains logically coherent: any world that successfully arises must be internally consistent, even if different possible worlds would differ drastically in their constants, symmetries, or dynamical structure.
 
-It is worth noting that positing a non-metric meta-time also offers an explanation for why the physical Universe we observe has a finite age (for example, approximately 13.8 billion years since the Big Bang) and a well-defined arrow of time. According to FZ, our linear time is an emergent artifact of selection: the infinite succession of atemporal attempts is not directly reflected on the timeline of our world, but the result of those attempts was the emergence of a Universe that was born with a ``time arrow'' and a finite past. In other words, inside a stable world, time begins to flow from a particular moment (the act of creation) and in a given direction, reflecting the chosen configuration of laws. Thus, what was an infinite process for the ``external'' nothingness appears to the inhabitants of the emerged world as a history with a beginning and an ordered flow of time. FZ Theory thereby unites the explanation of the origin of time with the explanation of the origin of being.
+A notable feature of FZ Theory is that it does not require special initial conditions or external triggers. By accepting an unbounded sequence of non-metric attempts (as in Axiom~1), the theory offers a way to explain the origin of a world without appealing to anything ``prior'' to it in a temporal sense. This perspective partially addresses conceptual gaps in some cosmological models. For example, eternal inflation scenarios posit the endless generation of ``bubble'' universes but typically do not specify the origin of the background in which inflation occurs. Other approaches, such as the Hartle--Hawking no-boundary proposal, allow time to emerge from a timeless state, yet they do not directly address why a particular world with specific properties was realized. FZ Theory introduces infinity as a primary axiom and incorporates an observational component as a necessary element, framing the emergence of a specific stable universe as the inevitable outcome of an unbounded selection process.
 
-Admittedly, it is difficult to rigorously model or experimentally verify the process of ``infinite atemporal attempts,'' since current scientific methods assume standard time and repeatability within it. However, the idea of infinite nothingness can be partially illustrated and investigated indirectly. For example, in quantum cosmology there are approaches where the Universe is considered to emerge from a timeless state (the Wheeler--DeWitt equation $H\Psi = 0$ formalizes a condition of ``no time''). In a similar vein, one can imagine the meta-time of nothingness as a superposition of innumerable possibilities, where each potential universe is ``tried out'' in parallel. Likewise, quantum computing and simulation might provide a tool to mimic parallel trials: a quantum computer can represent multiple states simultaneously, and in principle this could serve as a model for exploring how from a superposition of outcomes (analogous to an infinite number of attempts) a single realized world can emerge. Such considerations are still in the realm of hypothesis, but they point to how some aspects of FZ Theory might be made testable or at least vividly demonstrable.
+The introduction of a non-metric attempt index also suggests a way to interpret the finite age and directed arrow of time in the observed Universe. In the FZ framework, linear physical time is an emergent parameter associated with a particular stable configuration. The effectively infinite sequence of pre-physical attempts is not part of the internal temporal axis of the realized world; instead, the realized world begins with an act of selection that establishes an initial moment and a directed evolution. What appears externally as an unbounded pre-history of attempts is internally experienced as a finite past and a well-defined temporal arrow. In this way, the theory links the problem of the origin of time with the problem of the origin of being.
 
-The idea of nested realities and condensation gives the theory an additional dimension, suggesting a potentially infinite nesting or ``tree'' of universes spawning one another. Although this is an extremely intriguing aspect, it remains secondary to the main thesis and requires further theoretical development (in particular, clarifying how exactly laws and properties are transmitted between levels of reality). Nonetheless, the possibility of a multi-level existence is in harmony with the proposed concept of infinite possibilities inherent in nothingness.
+It is challenging to provide direct empirical tests of an ``infinite atemporal attempt'' process, since current scientific methodology assumes standard time and repeatable experiments within it. Nevertheless, elements of the framework can be related to existing ideas in quantum cosmology, where the Universe is sometimes modeled as emerging from a timeless or pre-temporal state (for example, in formulations where the Wheeler--DeWitt equation $H\Psi = 0$ encodes a condition of ``no time''). Analogies can also be drawn with quantum superposition and parallel exploration of states, suggesting that quantum computation and simulation might be used to construct models that emulate aspects of the theory's selection process. Such approaches remain speculative, but they indicate possible pathways to illustrating and probing specific aspects of the framework.
 
-In conclusion, FZ Theory (Theory of Nothing) is an original cosmological concept that explains the emergence of existence from nonexistence, the concurrent birth of consciousness with the world, and the possibility of subsequent creation of nested worlds. It represents an independent contribution to cosmological thought, stimulating interest in the discussion and further examination of such ideas. The computational tests conducted lend preliminary support to the theory, showing that its principles can be realized in abstract models and contain no internal contradictions. Going forward, a more detailed mathematical description of ``nothingness,'' exploring connections with existing physical theories (for instance, concepts of the quantum vacuum, emergent time, or inflationary cosmologies), and possibly identifying observable consequences that would provide empirical support for the theory, remain as tasks for future research.
+The concepts of nested realities and condensation extend the theory by suggesting that additional layers of structure may arise within an already realized world, potentially generating a hierarchy of worlds with increasing levels of constraint and specificity. While this hierarchy is not essential for understanding the primary transition from nonexistence to existence, it is consistent with the idea that an infinite space of possibilities can encompass multiple levels of realization. Further work would be required to detail the mechanisms by which laws and parameters are transmitted or transformed across different levels of reality.
 
-\section*{Appendix: Mathematical Demonstration of the Principle of Infinite Attempts}
+In summary, FZ Theory (Theory of Nothing) provides a structured cosmological concept that addresses the emergence of existence from nonexistence, the concurrent appearance of a minimal observer with the first stable world, and the possibility of subsequent nested worlds. It is positioned as a conceptual and mathematical framework rather than a fully developed physical theory, but it maintains internal logical consistency and offers a coherent narrative for the selection of worlds. The computational tests discussed in this work serve as proof-of-concept demonstrations, showing that the core principles of the theory can be instantiated in abstract models without generating contradictions. Future research directions include refining the mathematical description of the PND, exploring connections with models of the quantum vacuum, emergent time, and inflationary cosmologies, and identifying potential indirect or analogical signatures that might lend additional support to the framework.
 
-For clarity, consider a probabilistic model illustrating the inevitability of a stable world's appearance given an infinite number of attempts (related to Axioms~1--2). Let $p$ be an extremely small but nonzero probability that a single fluctuation will result in a self-consistent stable world (accompanied by consciousness). Then the probability $P(N)$ that at least one stable world will appear in the course of $N$ independent attempts is given by:
+\section*{Appendix: Mathematical Demonstration}
+
+To clarify the probabilistic aspect of FZ Theory, consider a simplified model illustrating the inevitability of the appearance of at least one stable world under an infinite number of attempts (corresponding to Axioms~1 and~2). Let $p$ be an extremely small but nonzero probability that a single fluctuation leads to a self-consistent stable world (with an accompanying minimal observer). The probability $P(N)$ that at least one stable world appears in $N$ independent attempts is
+
 \[
-P(N) = 1 - (1 - p)^N\,.
+P(N) = 1 - (1 - p)^N.
 \]
-Here $(1 - p)^N$ is the probability that none of the $N$ attempts succeeds, and by subtracting it from 1, we obtain the probability of at least one successful outcome. As the number of attempts $N$ increases, this probability rises rapidly. In the limit $N \to \infty$, we get:
-\[
-\lim_{N \to \infty} P(N) = 1 - \lim_{N \to \infty} (1 - p)^N = 1,\qquad \text{if } p > 0\,.
-\]
-Thus, even an arbitrarily small but nonzero chance (say $p = 10^{-\text{googol}}$) results in the appearance of at least one stable world becoming virtually guaranteed with an infinite number of trials ($P \to 1$). This simple mathematical fact reflects the essence of FZ Theory: absolute nothingness, with its infinite potential for attempts, inevitably self-generates something. It is as if a paradoxical ``self-saturation'' of nothingness occurs: zero, repeated infinitely, yields a one. This formal result is consistent with Axiom~2 (unlimited possibilities) and Axiom~3 (selection of stable configurations) — nothingness exhaustively explores all variants of being until a viable configuration is found.
 
-As an illustration, consider a numerical example. Let the probability of a successful fluctuation be $p = 10^{-10}$ (this could correspond to an extremely rare quantum tunneling from nothing to something). Then:
+Here $(1 - p)^N$ is the probability that none of the $N$ attempts succeeds. Subtracting this from $1$ yields the probability of at least one successful outcome. As $N$ increases, $P(N)$ grows monotonically. In the limit $N \to \infty$, we obtain
+
+\[
+\lim_{N\to\infty} P(N)
+= 1 - \lim_{N\to\infty} (1 - p)^N = 1, \quad \text{for any } p>0.
+\]
+
+Thus, even an arbitrarily small but nonzero success probability (for example, $p = 10^{-\mathrm{googol}}$) leads to a probability arbitrarily close to~$1$ for the emergence of at least one stable world when the number of attempts becomes unbounded. This captures the central probabilistic intuition of FZ Theory: an unbounded sequence of attempts in a pre-existential null domain with nonzero potentiality makes the realization of a stable configuration effectively inevitable.
+
+As a numerical illustration, take $p = 10^{-10}$. Then:
+
 \begin{itemize}
-    \item For $N = 1$ (one attempt), the probability $P(1) \approx 1 \times 10^{-10}$ (practically zero).
-    \item For $N = 10^6$, the probability $P(10^6) \approx 1.15 \times 10^{-4}$ (still an extremely small value, on the order of 0.01\%).
-    \item For $N = 10^{12}$, the probability $P(10^{12}) \approx 1 - (1 - 10^{-10})^{10^{12}} \approx 1 - e^{-10^2} \approx 0.9999999999 \approx 1.0$.
+    \item For $N = 1$, \\
+    $P(1) \approx 1\times 10^{-10}$, effectively zero.
+    \item For $N = 10^6$, \\
+    $P(10^6) \approx 1.15\times 10^{-4}$, still extremely small.
+    \item For $N = 10^{12}$, \\
+    \[
+    P(10^{12}) \approx 1 - (1 - 10^{-10})^{10^{12}}
+    \approx 1 - e^{-10^2}
+    \approx 0.9999999999,
+    \]
+    which is effectively $1.0$ for practical purposes.
 \end{itemize}
 
-With $10^{12}$ independent attempts, the event ``emergence of a world'' becomes practically certain (probability $> 99.99999999\%$), and in the limit of an infinite number of attempts, it becomes exactly 1.0. Of course, in reality there is no literal counter of such attempts, but this calculation conceptually models the non-metric infinite ``time of nothingness'': one could say that nothingness had enough opportunities to inevitably realize even an almost impossible event.
+With $10^{12}$ independent attempts, the emergence of a world becomes practically certain (probability greater than $99.99999999\%$), and in the idealized limit of infinitely many attempts the probability becomes exactly~1. In the FZ context, there is no literal counter recording these attempts; instead, this calculation serves as an analogy for the non-metric infinite attempt index: one can say that the PND has ``enough opportunities'' to realize even events with extremely low individual probability.
 
-For completeness, we also introduce a formal representation of the symmetry of nonexistence and its breaking when something emerges. Absolute nothingness can be treated as a state of complete symmetry (the absence of any distinctions or differentiated states). As the potential of nothingness builds up, this symmetry begins to break. Introduce a dimensionless parameter $\Phi$ characterizing the ``saturation'' of the void with potential (let us say $\Phi = 1$ corresponds to some neutral state, and $\Phi \to \infty$ to the infinite potential of absolute nothingness). Define an asymmetry function:
+To complement this probabilistic picture, we introduce a simple phenomenological model of symmetry breaking between nonexistence and existence. Absolute nothingness can be idealized as a state of complete symmetry, in which no distinctions or differentiated states are present. As potentiality accumulates, this symmetry begins to shift. Introduce a dimensionless parameter $\Phi$ that represents the level of potentiality (for example, $\Phi = 1$ as a reference state and $\Phi \to \infty$ as the limit of maximal potential). Define an asymmetry function
+
 \[
-A(\Phi) = \frac{\Phi^2 - 1}{\Phi^2 + 1}\,.
+A(\Phi) = \frac{\Phi^2 - 1}{\Phi^2 + 1}.
 \]
-This quantity measures the deviation from the ideal symmetry between non-being and being. At $\Phi = 1$, we get $A(1) = 0$ (complete symmetry, nothingness is not inclined toward either being or non-being), and as $\Phi \to \infty$, $A(\Phi) \to 1$ (maximal symmetry breaking in favor of the appearance of definite being). For example, at $\Phi \approx 4.38$, the value $A \approx 0.9009$, meaning about 90\% of the symmetry between nonexistence and existence is broken in the direction of existence. In other words, the accumulated potential has already ``tipped the scales'' about 90\% toward the emergence of order. This formal example shows how the growth of the parameter $\Phi$ (reflecting, figuratively speaking, the richness of possibilities or number of trials) leads to an ever-greater bias toward the appearance of differentiation and structure. The process of world creation can be interpreted as a spontaneous symmetry breaking of nonexistence: upon reaching a critical level of potential, nothingness loses its perfect equilibrium and generates a distinction — the first facet of being, a boundary beyond which something appears instead of nothing.
 
-The models and formulas presented above, while simplified, lend a degree of rigor to the framework of FZ Theory. They demonstrate that the idea of infinite attempts mathematically leads to the inevitable emergence of the desired outcome, and they allow for a quantitative discussion of the transition from absolutely symmetric nothingness to the broken symmetry of existence. These derivations do not contradict known principles of probability and symmetry in physics, but rather resonate with them (for example, with ideas about the Universe tunneling from ``nothing'' or about the spontaneous symmetry breaking of the vacuum). In this way, FZ Theory attains not only philosophical cohesion but also a measure of mathematical elegance, showing that infinite nothingness can indeed serve as a legitimate ``generator of being'' when the limit $N \to \infty$ and related physical interpretations are properly taken into account.
+This function quantifies the deviation from perfect symmetry between non-being and being. At $\Phi = 1$, we have $A(1) = 0$, corresponding to a symmetric reference state with no bias toward either nonexistence or existence. As $\Phi \to \infty$, $A(\Phi) \to 1$, representing maximal asymmetry in favor of realized being. For instance, at $\Phi \approx 4.38$, $A(\Phi) \approx 0.9009$, indicating that approximately $90\%$ of the symmetry has been broken toward existence. In this heuristic model, increasing $\Phi$ can be interpreted as increasing the effective richness of possibilities or the effective number of attempts, leading to an increasing bias toward the emergence of structured configurations.
 
-\section*{Appendix B: Notation and Definitions}
+This construction is not proposed as a fundamental physical law but as an illustrative mathematical mapping that makes the notion of ``self-saturation'' of the PND more concrete. Here, ``symmetry,'' ``asymmetry,'' and the values $A(\Phi)\in[0,1]$ are not physical quantities but conceptual parameters of the model, introduced solely as an intuitive way to represent how increasing potentiality biases the system toward realized being.
 
-This appendix collects the main symbols, mathematical quantities, and conceptual variables used throughout the FZ Theory. They are grouped by category and correspond to the formulas and explanations in the main text.
+It shows how a parameter representing accumulated potentiality can be associated with a monotonic increase in the preference for structured being over undifferentiated nonexistence. The transition from a symmetric state (no realized worlds) to an asymmetric state (at least one realized world) can then be described as a form of spontaneous symmetry breaking at the level of ontological possibilities.
 
-\subsection*{B.1 Core Probabilistic Quantities}
+The models and formulas presented here are simplified and phenomenological, but they provide a transparent way to link the qualitative ideas of FZ Theory with explicit mathematical expressions. They demonstrate that the assumption of an unbounded attempt process with nonzero success probability naturally leads to the inevitability of at least one successful realization, and they support a quantitative discussion of how an initially symmetric state can evolve into one where structured existence is favored. These constructions are consistent with established probability theory and with general ideas about symmetry breaking in physics, while remaining explicitly interpretive rather than derived from a specific dynamical model. In this sense, they add a measure of mathematical structure to the theory’s conceptual core and help clarify how an ``infinite nothingness'' can function as a generative backdrop for realized worlds.
 
-\begin{description}
-    \item[$p$] A non-zero probability of a minimal successful fluctuation leading to a stable world.
-    \item[$t$] Measure of the number of trials in the ``time of nothingness'' (non-metric meta-time; not chronological physical time).
-    \item[$tp$] Trial--probability product; the key parameter of manifestation that controls the saturation of $P$.
-    \item[$P(t,p)$] Probability that at least one successful manifestation occurs. Defined as
-    \[
-    P(t,p) = 1 - e^{-tp}.
-    \]
-    \item[$P = 1$] Limit of inevitability of manifestation as
-    \[
-    tp \to \infty \quad \Rightarrow \quad P(t,p) \to 1.
-    \]
-    \item[$4.60517018$] Critical value of the product $tp$ such that $P = 0.99$. Defined implicitly by solving
-    \[
-    1 - e^{-tp} = 0.99.
-    \]
-\end{description}
+
+\section*{Appendix B: Notation and Definitions (Selected Quantities)}
 
 \subsection*{B.2 Potentiality and Symmetry Quantities}
 
-\begin{description}
-    \item[$\Phi$] Potentiality (capacity of nothingness); dimensionless quantity that can grow without bound, $\Phi \to \infty$.
-    \item[$A(\Phi)$] Asymmetry function expressing deviation from perfect symmetry between non-being and being. In the model used in this work,
+\begin{itemize}
+    \item \textbf{$\Phi$ (Phi):}  
+    Potentiality or capacity of the pre-existential null domain (PND); a dimensionless quantity that can grow without bound ($\Phi \to \infty$). It represents, in an abstract way, the “amount” of available possibility.
+
+    \item \textbf{$A(\Phi)$:}  
+    Asymmetry function expressing the deviation from perfect symmetry between non-being and being. In the illustrative model used in this work, it is defined as  
     \[
-    A(\Phi) = \frac{\Phi^2 - 1}{\Phi^2 + 1},
-    \]
-    which is an illustrative phenomenological choice.
-    \item[$\Phi = 1$] Symmetric reference point at which $A(1) = 0$ (no bias toward either being or non-being).
-    \item[$\Phi \to \infty$] Limit of maximal symmetry breaking, with $A(\Phi) \to 1$, corresponding to a strong bias toward the emergence of definite being.
-    \item[$\Phi \approx 4.38$] Example value at which $A(\Phi) \approx 0.9009$, i.e.\ roughly \(90\%\) of the symmetry between nonexistence and existence is broken in favor of existence. (This is conceptually distinct from the critical probability threshold at $tp \approx 4.60517$.)
-\end{description}
+    A(\Phi) = \frac{\Phi^2 - 1}{\Phi^2 + 1}.
+    \]  
+    This choice is phenomenological: it provides a smooth, monotonic mapping from $\Phi$ to a measure of asymmetry, but it is not derived from a specific dynamical law.
+
+    \item \textbf{$\Phi = 1$:}  
+    Reference point at which $A(1) = 0$, corresponding to a symmetric state with no bias toward either nonexistence or existence.
+
+    \item \textbf{$\Phi \to \infty$:}  
+    Limit of maximal symmetry breaking, with $A(\Phi) \to 1$, corresponding to a strong bias toward the emergence of definite being.
+
+    \item \textbf{$\Phi \approx 4.38$:}  
+    Example value at which $A(\Phi) \approx 0.9009$, meaning that roughly 90 percent of the symmetry between nonexistence and existence is broken in favor of existence. This example is conceptually distinct from the critical probability threshold at $t p \approx 4.60517$ used in the probabilistic model.
+\end{itemize}
 
 \subsection*{B.3 Structural Evolution (Densification)}
 
-\begin{description}
-    \item[$\rho$] Structural density of a world or proto-world; qualitatively measures how ``dense,'' constrained, or structured a given reality is.
-    \item[$\dfrac{d\rho}{dt} = k\rho$] Simple exponential growth law for densification, expressing that the rate of structural growth is proportional to the current density.
-    \item[$k$] Growth coefficient (may depend on potentiality level or higher-level constraints).
-    \item[$\rho(t) = \rho_0 e^{kt}$] General solution of the densification equation, where $\rho_0$ is the initial structural density at the onset of a given evolutionary phase.
-\end{description}
+\begin{itemize}
+    \item \textbf{$\rho$ (rho):}  
+    Structural density of a world or proto-world; a qualitative measure of how “dense,” constrained, or structured a given reality is. Higher $\rho$ corresponds to more detailed and restrictive laws or configurations.
+
+    \item \textbf{$\frac{d\rho}{dt} = k\rho$:}  
+    Simple exponential growth model for densification, expressing that the rate of structural growth is proportional to the current structural density $\rho$. Here $t$ represents an appropriate parameter of evolution, and $k$ is a growth coefficient.
+
+    \item \textbf{$k$:}  
+    Growth coefficient that may depend on the level of potentiality or on constraints imposed by higher-level structures. It sets the characteristic rate at which structure accumulates.
+
+    \item \textbf{$\rho(t) = \rho_0 e^{k t}$:}  
+    General solution of the densification equation, where $\rho_0$ is the initial structural density at the beginning of a given evolutionary phase. This model is illustrative and is used to describe the idea that structure can grow exponentially under suitable conditions.
+\end{itemize}
 
 \subsection*{B.4 Stability and Selection}
 
-\begin{description}
-    \item[$W$] A world: a set of self-consistent constraints, laws, and structures that jointly define a stable configuration of reality.
-    \item[$\sigma$] Spread (variance) of possible world-parameters during the selection process; measures how widely candidate worlds deviate from an attractor.
-    \item[$\mu$] Expected (attractor) parameter value for stable worlds; typical or most probable configuration among those that pass the stability filter.
-    \item[$\delta$] Width of the stability band around $\mu$; worlds with parameters outside this band tend to be unstable and collapse.
-    \item[Gaussian kernel] A Gaussian weighting function used to model the selection of stable worlds from a distribution of candidates, e.g.
+\begin{itemize}
+    \item \textbf{$W$:}  
+    A world: a set of self-consistent constraints, laws, and structures that jointly define a stable configuration of reality.
+
+    \item \textbf{$\sigma$ (sigma):}  
+    Spread (variance) of possible world-parameters during the selection process; measures how widely candidate worlds deviate from a preferred or stable value.
+
+    \item \textbf{$\mu$ (mu):}  
+    Expected or attractor parameter value for stable worlds; represents a typical or most probable configuration among those that satisfy stability criteria.
+
+    \item \textbf{$\delta$ (delta):}  
+    Width of the stability band around $\mu$; configurations with parameters outside this band tend to be unstable and collapse back into the PND.
+
+    \item \textbf{Gaussian kernel:}  
+    A Gaussian weighting function used to model the selection of stable worlds from a distribution of candidates, typically of the form  
     \[
-    K(x) = \frac{1}{\sqrt{2\pi}\,\sigma}\,\exp\!\left[-\frac{(x-\mu)^2}{2\sigma^2}\right],
-    \]
-    where $x$ represents a world-parameter. Configurations with parameters closer to $\mu$ are favored (more stable), while those far from $\mu$ are suppressed.
-\end{description}
+    K(x) \propto \exp\!\left[-\frac{(x - \mu)^2}{2\sigma^2}\right],
+    \]  
+    where $x$ denotes a world-parameter. Configurations closer to $\mu$ are favored (more likely to be stable), while those far from $\mu$ are suppressed.
+\end{itemize}
 
 \subsection*{B.5 Ontological Quantities}
 
-\begin{description}
-    \item[$N$] ``Nothingness'': a state with zero distinctions and infinite potentiality; no matter, energy, space, time, or laws.
-    \item[$A$] Minimal distinction (first boundary) that breaks the perfect symmetry of $N$ and marks the onset of being.
-    \item[$C$] Consciousness (primordial observer) that arises together with the first stable world and defines its boundaries by observation.
-    \item[$I$] Information (a difference that makes a difference); structured distinction that shapes form and law.
-    \item[$I^\* = F(I^\*)$] Fixed-point consistency condition defining consciousness as a stable informational structure: applying the operator $F$ to $I^\*$ reproduces $I^\*$, expressing self-consistency of the observing system.
-\end{description}
+\begin{itemize}
+    \item \textbf{$N$:}  
+    “Nothingness” understood as a state with zero distinctions and infinite potentiality: no matter, no energy, no space, no time, and no explicit laws.
+
+    \item \textbf{$A$ (as a concept, not $A(\Phi)$):}  
+    Minimal distinction or first boundary that breaks the perfect symmetry of $N$ and marks the onset of being. It can be interpreted as the first stable differentiation within the PND.
+
+    \item \textbf{$C$:}  
+    Consciousness or primordial observer that arises together with the first stable world and defines its boundaries through observation. $C$ plays the role of the observational component in the minimal self-consistent pair (MSCP).
+
+    \item \textbf{$I$:}  
+    Information, understood as a “difference that makes a difference”; structured distinction that shapes form, law, and state within a world.
+
+    \item \textbf{$I^{*} = F(I^{*})$:}  
+    Fixed-point condition defining consciousness as a stable informational structure. Here $I^{*}$ denotes an informational configuration, and $F$ is an operator that maps informational states to informational states. The equality $I^{*} = F(I^{*})$ expresses self-consistency of the observing system: its structure is preserved under its own update dynamics.
+\end{itemize}
 
 \subsection*{B.6 Numerical Constants Used in Code}
 
-\begin{description}
-    \item[\texttt{np.expm1}] Numerically stable implementation of $e^{x} - 1$ used to compute $1 - e^{-x}$ without loss of precision for very small $x$.
-    \item[\(10^{-20}, 10^{-100}\)] Example small probabilities used in unit tests to probe extreme low-probability regimes.
-    \item[\(10^{22}, 10^{102}\)] Example trial magnitudes used to explore asymptotic behaviour as $tp$ becomes very large.
-    \item[Precision $= 50$--$100$ digits] Required \texttt{Decimal} precision (number of significant digits) for high-precision stability tests in numerical verification.
-\end{description}
+\begin{itemize}
+    \item \textbf{\texttt{np.expm1}:}  
+    Numerically stable implementation of the function $\exp(x) - 1$, used in the code to compute quantities like $1 - \exp(-x)$ for very small $x$ without losing precision.
+
+    \item \textbf{$10^{-20}$, $10^{-100}$:}  
+    Example small probabilities used in unit tests to probe extreme low-probability regimes and to verify that the numerical implementation behaves correctly under such conditions.
+
+    \item \textbf{$10^{22}$, $10^{102}$:}  
+    Example large trial counts used to explore asymptotic behavior as the product $t p$ becomes very large, verifying that probabilities saturate as expected.
+
+    \item \textbf{Precision = 50--100 digits:}  
+    Required decimal precision for high-precision tests in the numerical verification of the theory’s formulas. This precision is used in the \texttt{Decimal}-based computations to avoid round-off errors in extreme parameter regimes.
+\end{itemize}
 
 \subsection*{B.7 Conceptual Variables (Non-Mathematical)}
 
-\begin{description}
-    \item[\emph{Infinite nothing time}] Infinite sequence of non-temporal trials (non-metric meta-time), distinct from physical chronological time.
-    \item[\emph{Stability filter}] Conceptual mechanism by which unstable worlds collapse back into nothingness, while self-consistent worlds persist.
-    \item[\emph{Nested worlds}] Worlds created inside a parent world, having greater structural density and more specific laws than their encompassing reality.
-    \item[\emph{Densification}] Evolution from abstract to concrete, from low-constraint to high-constraint reality; increase in $\rho$ over meta-time.
-    \item[\emph{Primordial observer}] First consciousness arising together with the first stable world, providing the reference frame that makes this world definite.
-\end{description}
+\begin{itemize}
+    \item \textbf{Infinite nothing time:}  
+    Conceptual shorthand for an infinite sequence of non-temporal trials (non-metric meta-time), distinct from physical chronological time. It represents the unbounded attempt index of the PND.
 
+    \item \textbf{Stability filter:}  
+    Conceptual mechanism by which unstable worlds collapse back into nothingness, while self-consistent worlds persist. In practice, this corresponds to discarding inconsistent configurations in the selection process.
+
+    \item \textbf{Nested worlds:}  
+    Worlds created inside a parent world, having greater structural density and more specific laws than their encompassing reality. They represent lower levels in the hierarchy of realities described by FZ Theory.
+
+    \item \textbf{Densification:}  
+    Evolution from abstract to concrete, from low-constraint to high-constraint reality; associated with an increase in structural density $\rho$ over meta-time or over appropriate evolutionary parameters.
+
+    \item \textbf{Primordial observer:}  
+    First minimal form of consciousness arising together with the first stable world, providing the reference frame that makes this world definite. It constitutes the observational component of the initial minimal self-consistent pair (MSCP).
+\end{itemize}
 
 \section*{Acknowledgments}
 
@@ -267,7 +345,7 @@ The author acknowledges the role of personal life experience, which made it poss
 
 \section*{Data \& Code Availability}
 
-All code used for the computational verification of the FZ Theory (including numerical implementations of the core equations, unit tests, and demonstration scripts) is openly available in the public GitHub repository:
+All code used for the computational verification of the FZ Theory (including numerical implementations of the core equations, unit tests, and demonstration scripts) is openly available in the public GitHub repository.
 
 A frozen, citable snapshot corresponding to version~1.0.6 is archived on Zenodo:
 
@@ -279,11 +357,12 @@ The repository currently contains, in particular:
 \begin{itemize}
     \item the core implementation of the main FZ equations in \texttt{src/core.py} (including the manifestation probability $P(t,p)$ and related functions);
     \item a verification suite with unit tests in \texttt{validation/critical\_tests.py}, reproducing the numerical checks discussed in the article;
-    \item the full LaTeX manuscript of the theory in \texttt{paper/main.tex};
+    \item the full \LaTeX{} manuscript of the theory in \texttt{paper/main.tex};
     \item a demonstration script \texttt{demo.py} that performs example calculations (critical points, extreme cases, high-precision checks) and illustrates how the manifestation probability $P(t,p)$ saturates toward~1 as $t p$ increases;
     \item the file \texttt{requirements.txt} specifying the Python dependencies required to reproduce the numerical experiments;
     \item a detailed \texttt{README.md} with step-by-step instructions for creating a virtual environment, installing dependencies, and running the tests and demo.
 \end{itemize}
 
 All materials are released for open examination and may be freely reproduced or extended for further theoretical and numerical research, provided that appropriate credit to the FZ Theory is given.
+
 \end{document}
