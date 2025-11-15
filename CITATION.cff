@@ -20,7 +20,7 @@ type: "software"
 
 references:
   - type: "dataset"
-    doi: "10.5281/zenodo.17613143"
+    doi: "10.5281/zenodo.17613149"
     title: "FZ Theory v1.0.6 (Zenodo archived snapshot)"
     year: 2025
     authors:
